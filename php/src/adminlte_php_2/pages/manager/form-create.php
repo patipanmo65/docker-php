@@ -1,20 +1,10 @@
-<?php
-
-/**
- *  Page Manager Create Admin
- * 
- * @link https://appzstory.dev
- * @author Yothin Sapsamran (Jame AppzStory Studio)
- */
-require_once('../authen.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>จัดการผู้ดูแลระบบ | AppzStory</title>
+    <title>จัดการเพิ่ม/แก้ไขข้อมูลแพทย์ | AppzStory</title>
     <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/hospital.png">
     <!-- stylesheet -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
@@ -37,14 +27,14 @@ require_once('../authen.php');
                                 <div class="card-header border-0 pt-4">
                                     <h4>
                                         <i class="fas fa-user-cog"></i>
-                                        เพิ่มข้อมูลผู้ดูแล
+                                        เพิ่ม/แก้ไขข้อมูลแพทย์
                                     </h4>
                                     <a href="./" class="btn btn-info my-3 ">
                                         <i class="fas fa-list"></i>
                                         กลับหน้าหลัก
                                     </a>
                                 </div>
-                                <form name="formCreate" action="../../service/manager/create.php" method="POST" enctype="multipart/form-data">
+                                <form name="formCreate" action="../../service/doctor/update.php" method="POST" enctype="multipart/form-data">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6 px-1 px-md-5">
@@ -58,25 +48,20 @@ require_once('../authen.php');
                                                     <input type="text" class="form-control" name="last_name" id="last_name" placeholder="นามสกุล" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="username">ชื่อผู้ใช้งาน</label>
-                                                    <input type="text" class="form-control" name="username" id="username" placeholder="ชื่อผู้ใช้งาน" required>
+                                                    <label for="hospital">โรงพยาบาล</label>
+                                                    <input type="text" class="form-control" name="hospital" id="hospital" placeholder="โรงพยาบาล" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="password">รหัสผ่าน</label>
-                                                    <input type="password" class="form-control" name="password" id="password" placeholder="รหัสผ่าน" required>
+                                                    <label for="position">ตำแหน่ง</label>
+                                                    <input type="text" class="form-control" name="position" id="position" placeholder="ตำแหน่ง" required>
                                                 </div>
-
+                                                <div class="form-group">
+                                                    <label for="specialization">การรักษา</label>
+                                                    <input type="text" class="form-control" name="specialization" id="specialization" placeholder="การรักษา" required>
+                                                </div>
+                                                <input type="hidden" name="id" id="id" value="">
                                             </div>
                                             <div class="col-md-6 px-1 px-md-5">
-
-                                                <div class="form-group">
-                                                    <label for="permission">สิทธิ์การใช้งาน</label>
-                                                    <select class="form-control" name="status" id="permission" required>
-                                                        <option value disabled selected>กำหนดสิทธิ์</option>
-                                                        <option value="superadmin">Super Admin</option>
-                                                        <option value="admin">Admin</option>
-                                                    </select>
-                                                </div>
 
                                                 <div class="form-group">
                                                     <label for="customFile">รูปโปรไฟล์</label>

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ตารางเเพทย์ออกตรวจ | Hospital</title>
     <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/hospital.png">
+
+
     <!-- stylesheet -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
     <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
@@ -88,28 +90,30 @@
                                                     $num++;
                                                     echo "<tr>";
                                                     echo "<td> {$num} </td>";
-                                                    echo "<td> {$row['patient_clinic']} </td>";
-                                                    echo "<td> {$row['time_business']} </td>";
-                                                    echo "<td> {$row['location']} </td>";
-                                                    // echo "<td> {$row['specialization']} </td>";
+                                                    echo "<td> {$row['patient_clinic']} </td>"; // แก้ชื่อฟิลด์ตามฐานข้อมูล
+                                                    echo "<td> {$row['time_business']} </td>"; // แก้ชื่อฟิลด์ตามฐานข้อมูล
+                                                    echo "<td> {$row['location']} </td>"; // แก้ชื่อฟิลด์ตามฐานข้อมูล
+                                                    echo "<td> {$row['specialization']} </td>"; // แก้ชื่อฟิลด์ตามฐานข้อมูล
                                                     // echo "<td> {$row['images']} </td>";
                                                     // echo "<td> {$row['updated_at']} </td>";
                                                     echo "<td> 
             <a href='form-edit.php?id={$row['id']}' type='button' class='btn btn-warning text-white'>
                 <i class='far fa-edit'></i> แก้ไข
             </a>
-            <button type='button' class='btn btn-danger' id='delete' data-id='{$row['id']}' data-index='{$row['id']}'>
-                <i class='far fa-trash-alt'></i> ลบ
-            </button>
+            <button type='button' class='btn btn-danger delete' data-id='{$row['id']}'>
+            <i class='far fa-trash-alt'></i> ลบ
+        </button>
+        
         </td>";
                                                     echo "</tr>";
                                                 }
                                             } else {
-                                                echo "ไม่พบข้อมูล";
+                                                echo "<tr><td colspan='5'>ไม่พบข้อมูล</td></tr>";
                                             }
 
                                             $conn->close();
                                             ?>
+
 
 
                                         </tbody>
@@ -121,6 +125,8 @@
                 </div>
             </div>
         </div>
+
+
         <?php include_once('../includes/footer.php') ?>
     </div>
 
@@ -139,53 +145,28 @@
     <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
     <script>
-    // แสดงผลการทำงานสำเร็จด้วย sweet alert
-    if (window.location.search.includes('?delete=success')) {
-        Swal.fire("รายการของคุณถูกลบเรียบร้อย", "", "success");
-        history.replaceState(null, null, window.location.pathname);
-    }
-    $(function() {
-        $('#logs').DataTable({
-            initComplete: function() {
-                $(document).on('click', '#delete', function() {
-                    let id = $(this).data('id')
-                    Swal.fire({
-                        text: "คุณแน่ใจหรือไม่...ที่จะลบรายการนี้?",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonText: 'ใช่! ลบเลย',
-                        cancelButtonText: 'ยกเลิก'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href =
-                                `../../service/blankpage/delete.php?id=${id}`;
-                        }
-                    })
-                }).on('change', '.toggle-event', function() {
-                    toastr.success('อัพเดทข้อมูลเสร็จเรียบร้อย')
-                })
-            },
-            fnDrawCallback: function() {
-                $('.toggle-event').bootstrapToggle();
-            },
-            responsive: {
-                details: {
-                    renderer: $.fn.dataTable.Responsive.renderer.tableAll({
-                        tableClass: 'table'
-                    })
+    $(document).ready(function() {
+        // แสดง Sweet Alert เมื่อคลิกที่ปุ่มลบ
+        $('.delete').click(function() {
+            var id = $(this).data('id');
+            Swal.fire({
+                text: "คุณแน่ใจหรือไม่ที่จะลบรายการนี้?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'ใช่! ลบเลย',
+                cancelButtonText: 'ยกเลิก'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // ส่งคำร้องขอลบไปยังหน้า delete.php พร้อมกับรหัส ID
+                    window.location.href = `delete.php?id=${id}`;
                 }
-            },
-            language: {
-                "lengthMenu": "แสดงข้อมูล _MENU_ แถว",
-                "zeroRecords": "ไม่พบข้อมูลที่ต้องการ",
-                "info": "แสดงหน้า _PAGE_ จาก _PAGES_",
-                "infoEmpty": "ไม่พบข้อมูลที่ต้องการ",
-                "infoFiltered": "(filtered from _MAX_ total records)",
-                "search": 'ค้นหา'
-            }
-        })
-    })
+            })
+        });
+    });
     </script>
+
+
+
 </body>
 
 </html>

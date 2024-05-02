@@ -1,19 +1,10 @@
-<?php 
-    /**
-     * Page Manager Edit Admin
-     * 
-     * @link https://appzstory.dev
-     * @author Yothin Sapsamran (Jame AppzStory Studio)
-     */
-    require_once('../authen.php'); 
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>จัดการผู้ดูแลระบบ | AppzStory</title>
+    <title>เพิ่มข้อมูลแพทย์ออกตรวจ | Hospital</title>
     <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/hospital.png">
     <!-- stylesheet -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
@@ -35,8 +26,8 @@
                             <div class="card shadow">
                                 <div class="card-header border-0 pt-4">
                                     <h4>
-                                        <i class="fas fa-users"></i>
-                                        เพิ่มข้อมูลลูกค้า
+                                        <i class="fas fa-user-md"></i>
+                                        เพิ่มข้อมูลแพทย์ออกตรวจ
                                     </h4>
                                     <a href="./" class="btn btn-info mt-3">
                                         <i class="fas fa-list"></i>
@@ -49,24 +40,24 @@
                                             <div class="col-xl-6 px-1 px-md-5">
 
                                                 <div class="form-group">
-                                                    <label for="first_name">ชื่อจริง</label>
-                                                    <input type="text" class="form-control" name="first_name"
-                                                        id="first_name" placeholder="ชื่อจริง" value="first name">
+                                                    <label for="name">ชื่อ-สกุล แพทย์</label>
+                                                    <input type="text" class="form-control" name="name" id="name"
+                                                        placeholder="ชื่อ-สกุล แพทย์" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="last_name">นามสกุล</label>
-                                                    <input type="text" class="form-control" name="last_name"
-                                                        id="last_name" placeholder="นามสกุล" value="last name">
+                                                    <label for="position">ตำแหน่ง</label>
+                                                    <input type="text" class="form-control" name="position"
+                                                        id="position" placeholder="ตำแหน่ง" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="phone">เบอร์โทรศัพท์</label>
-                                                    <input type="text" class="form-control" name="phone" id="phone"
-                                                        placeholder="เบอร์โทรศัพท์" value="phone">
+                                                    <label for="date">วันที่ออกตรวจ</label>
+                                                    <input type="date" class="form-control" name="date" id="date"
+                                                        required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="email">อีเมล</label>
-                                                    <input type="email" class="form-control" name="email" id="email"
-                                                        placeholder="อีเมล" value="email@domain">
+                                                    <label for="time">เวลาออกตรวจ</label>
+                                                    <input type="time" class="form-control" name="time" id="time"
+                                                        required>
                                                 </div>
 
                                             </div>
@@ -96,12 +87,12 @@
         $('#formData').on('submit', function(e) {
             e.preventDefault();
             $.ajax({
-                type: 'PUT',
-                url: '../../service/blankpage/update.php',
+                type: 'POST',
+                url: '../../service/doctor/checkup.php',
                 data: $('#formData').serialize()
             }).done(function(resp) {
                 Swal.fire({
-                    text: 'อัพเดทข้อมูลเรียบร้อย',
+                    text: 'บันทึกข้อมูลเรียบร้อย',
                     icon: 'success',
                     confirmButtonText: 'ตกลง',
                 }).then((result) => {

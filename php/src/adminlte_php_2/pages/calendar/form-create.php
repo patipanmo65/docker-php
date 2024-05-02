@@ -8,7 +8,7 @@ require_once('../authen.php');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>เพิ่มข้อมูลแพทย์ออกตรวจ | Hospital</title>
+    <title>หน้าตัวอย่าง | AppzStory</title>
     <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/favicon.ico">
     <!-- stylesheet -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
@@ -30,34 +30,34 @@ require_once('../authen.php');
                             <div class="card shadow">
                                 <div class="card-header border-0 pt-4">
                                     <h4>
-                                        <i class="fas fa-user-md"></i>
-                                        เพิ่มข้อมูลแพทย์ออกตรวจ
+                                        <i class="fas fa-users"></i>
+                                        เพิ่มข้อมูล
                                     </h4>
                                     <a href="./" class="btn btn-info mt-3">
                                         <i class="fas fa-list"></i>
                                         กลับหน้าหลัก
                                     </a>
                                 </div>
-                                <form name="formCreate" action="../../service/doctor/checkup_create.php" method="POST">
+                                <form name="formCreate" action="../../service/blankpage/create.php" method="POST">
                                     <div class="card-body">
                                         <div class="row justify-content-center">
                                             <div class="col-xl-6 px-1 px-md-5">
 
                                                 <div class="form-group">
-                                                    <label for="name">ชื่อ-สกุล แพทย์</label>
-                                                    <input type="text" class="form-control" name="name" id="name" placeholder="ชื่อ-สกุล แพทย์" required>
+                                                    <label for="first_name">ชื่อจริง</label>
+                                                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="ชื่อจริง" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="position">ตำแหน่ง</label>
-                                                    <input type="text" class="form-control" name="position" id="position" placeholder="ตำแหน่ง" required>
+                                                    <label for="last_name">นามสกุล</label>
+                                                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="นามสกุล" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="date">วันที่ออกตรวจ</label>
-                                                    <input type="date" class="form-control" name="date" id="date" required>
+                                                    <label for="phone">เบอร์โทรศัพท์</label>
+                                                    <input type="text" class="form-control" name="phone" id="phone" placeholder="เบอร์โทรศัพท์" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="time">เวลาออกตรวจ</label>
-                                                    <input type="time" class="form-control" name="time" id="time" required>
+                                                    <label for="email">อีเมล</label>
+                                                    <input type="email" class="form-control" name="email" id="email" placeholder="อีเมล" required>
                                                 </div>
 
                                             </div>

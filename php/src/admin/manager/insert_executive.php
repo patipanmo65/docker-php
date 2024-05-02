@@ -1,5 +1,3 @@
-<!-- insert_executive.php -->
-
 <?php
 // Connect to database
 $conn = mysqli_connect("db", "MYSQL_USER", "MYSQL_PASSWORD", "MYSQL_DATABASE");
@@ -15,13 +13,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $position = $_POST['position'];
     $bio = $_POST['bio'];
+    $image = file_get_contents($_FILES['image']['tmp_name']); // Convert image to BLOB
 
     // Prepare SQL statement to insert data into executives table
-    $sql = "INSERT INTO executives (name, position, bio) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO executives (name, position, bio, image) VALUES (?, ?, ?, ?)";
 
     // Prepare and bind parameters
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "sss", $name, $position, $bio);
+    mysqli_stmt_bind_param($stmt, "sssb", $name, $position, $bio, $image);
 
     // Execute the statement
     if (mysqli_stmt_execute($stmt)) {
@@ -36,4 +35,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Close the connection
 mysqli_close($conn);
-?>

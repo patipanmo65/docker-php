@@ -61,20 +61,20 @@ function isActive($data)
                 <li class="nav-item">
                     <a href="../blankpage/" class="nav-link <?php echo isActive('blankpage') ?>">
                         <i class="nav-icon fas fa-user-cog"></i>
-                        <p>Blank Page</p>
+                        <p>ตารางเเพทย์ </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../calendar/" class="nav-link <?php echo isActive('calendar') ?>">
                         <i class="nav-icon fas fa-user-cog"></i>
-                        <p>calendar Page</p>
+                        <p>ปฏิทินกิจกรรม</p>
                     </a>
                 </li>
                 <!-- menu about -->
                 <li class="nav-item">
                     <a href="../about/" class="nav-link <?php echo isActive('about') ?>">
                         <i class="nav-icon fas fa-user-cog"></i>
-                        <p>about page</p>
+                        <p>เกี่ยวกับ</p>
                     </a>
                 </li>
                 <li class="nav-item">

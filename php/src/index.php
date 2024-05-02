@@ -155,18 +155,18 @@
                                     </div>
 
                                     <div class="card-body card-body-cascade">
-                                        <h4 class="card-title">โรงพยาบาลสมเด็จพระยุพราชปัว มีบริการจัดส่งยาถึงบ้าน/h4>
-                                            <!-- <h5><span class="badge badge-smd z-depth-0">มัธยมศึกษาตอนต้น</span></h5> -->
-                                            <div class="collapse-content">
-                                                <p class="card-text collapse" id="pNormalCollapse">
-                                                    โรงพยาบาลสมเด็จพระยุพราชปัว มีบริการจัดส่งยาถึงบ้าน
-                                                    ***สิทธิบัตรทองฟรี ไม่มีค่าใช้จ่ายได้ทั่วประเทศ***
-                                                    สิทธิอื่น ๆ จัดส่งด้วยพัสดุ 55 บ้าน ทั่วประเทศ
-                                                </p>
-                                                <a class="btn btn-flat text-smd p-1 my-1 mr-0 mml-1 collapsed"
-                                                    data-toggle="collapse" href="#pNormalCollapse" aria-expanded="false"
-                                                    aria-controls="collapseContent"></a>
-                                            </div>
+                                        <h4 class="card-title">โรงพยาบาลสมเด็จพระยุพราชปัว มีบริการจัดส่งยาถึงบ้าน </h4>
+                                        <!-- <h5><span class="badge badge-smd z-depth-0">มัธยมศึกษาตอนต้น</span></h5> -->
+                                        <div class="collapse-content">
+                                            <p class="card-text collapse" id="pNormalCollapse">
+                                                โรงพยาบาลสมเด็จพระยุพราชปัว มีบริการจัดส่งยาถึงบ้าน
+                                                ***สิทธิบัตรทองฟรี ไม่มีค่าใช้จ่ายได้ทั่วประเทศ***
+                                                สิทธิอื่น ๆ จัดส่งด้วยพัสดุ 55 บ้าน ทั่วประเทศ
+                                            </p>
+                                            <a class="btn btn-flat text-smd p-1 my-1 mr-0 mml-1 collapsed"
+                                                data-toggle="collapse" href="#pNormalCollapse" aria-expanded="false"
+                                                aria-controls="collapseContent"></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -315,8 +315,9 @@
                 <div class="card mb-3">
                     <div class="hoverable view">
                         <div class="card-body">
-                            <iframe src="https://maps.app.goo.gl/a8gbiBScfxxauPpW9" width="98%" frameborder="0"
-                                style="border:0;" allowfullscreen=""></iframe>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235.54260580612856!2d100.92489624573506!3d19.16540570245212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3127e12347b829eb%3A0x1922d96804ce2ae7!2z4LmC4Lij4LiH4Lie4Lii4Liy4Lia4Liy4Lil4Liq4Lih4LmA4LiU4LmH4LiI4Lie4Lij4Liw4Lii4Li44Lie4Lij4Liy4LiK4Lib4Lix4Lin!5e0!3m2!1sth!2sth!4v1714546802029!5m2!1sth!2sth"
+                                width="98%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                             <p class="card-text"><u>ที่อยู่</u> โรงพยาบาลสมเด็จพระยุพราชปัว 70ม.6 ต.วรนคร, Pua,
                                 Thailand, Nan</p>
                             <p class="card-text"><u>โทรศัพท์</u> <a href="tel:054 719 614">054 719 614</a>

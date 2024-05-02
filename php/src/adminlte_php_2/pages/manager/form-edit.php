@@ -1,20 +1,10 @@
-<?php
-
-/**
- * Page Manager Edit Admin
- * 
- * @link https://appzstory.dev
- * @author Yothin Sapsamran (Jame AppzStory Studio)
- */
-require_once('../authen.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>จัดการผู้ดูแลระบบ | AppzStory</title>
+    <title>Edit Doctor - โรงพยาบาลปัว</title>
     <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/hospital.png">
     <!-- stylesheet -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
@@ -36,63 +26,52 @@ require_once('../authen.php');
                             <div class="card shadow">
                                 <div class="card-header border-0 pt-4">
                                     <h4>
-                                        <i class="fas fa-user-cog"></i>
-                                        แก้ไขข้อมูลผู้ดูแล
+                                        <i class="fas fa-user-md"></i>
+                                        แก้ไขข้อมูลแพทย์
                                     </h4>
                                     <a href="./" class="btn btn-info my-3 ">
                                         <i class="fas fa-list"></i>
                                         กลับหน้าหลัก
                                     </a>
                                 </div>
-                                <form id="formData">
+                                <form id="formData" enctype="multipart/form-data">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6 px-1 px-md-5">
-
                                                 <div class="form-group">
-                                                    <label for="first_name">ชื่อจริง</label>
-                                                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="ชื่อจริง" value="<?php echo $_SESSION['AD_FIRSTNAME'] ?>" required>
+                                                    <label for="name">ชื่อ-สกุล</label>
+                                                    <input type="text" class="form-control" name="name" id="name"
+                                                        placeholder="ชื่อ-สกุล" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="last_name">นามสกุล</label>
-                                                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="นามสกุล" value="<?php echo $_SESSION['AD_LASTNAME'] ?>" required>
+                                                    <label for="position">ตำแหน่ง</label>
+                                                    <input type="text" class="form-control" name="position"
+                                                        id="position" placeholder="ตำแหน่ง" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="username">ชื่อผู้ใช้งาน</label>
-                                                    <p class="bg-light p-2 shadow-sm">
-                                                        <?php echo $_SESSION['AD_USERNAME'] ?></p>
+                                                    <label for="bio">ประวัติ</label>
+                                                    <textarea class="form-control" name="bio" id="bio" rows="4"
+                                                        placeholder="ประวัติ"></textarea>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="password">รหัสผ่าน</label>
-                                                    <p class="bg-light p-2 shadow-sm">******</p>
-                                                </div>
-
                                             </div>
                                             <div class="col-md-6 px-1 px-md-5">
-
                                                 <div class="form-group">
-                                                    <label for="permission">สิทธิ์การใช้งาน</label>
-                                                    <select class="form-control" name="status" id="permission" required>
-                                                        <option value disabled>กำหนดสิทธิ์</option>
-                                                        <option value="superadmin" selected>Super Admin</option>
-                                                        <option value="admin">Admin</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="customFile">รูปโปรไฟล์</label>
+                                                    <label for="customFile">รูปภาพ</label>
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile" accept="image/*">
-                                                        <label class="custom-file-label" for="customFile">เลือกรูปภาพใหม่</label>
+                                                        <input type="file" class="custom-file-input" id="customFile"
+                                                            name="image" accept="image/*">
+                                                        <label class="custom-file-label"
+                                                            for="customFile">เลือกรูปภาพ</label>
                                                     </div>
-                                                    <img src="../../assets/images/avatar5.png" alt="Image Profile" class="img-fluid p-3">
+                                                    <img src="../../assets/images/avatar5.png" alt="Profile Image"
+                                                        class="img-fluid p-3" id="imagePreview">
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-block mx-auto w-50" name="submit">บันทึกข้อมูล</button>
+                                        <button type="submit" class="btn btn-primary btn-block mx-auto w-50"
+                                            name="submit">บันทึกข้อมูล</button>
                                     </div>
                                 </form>
                             </div>
@@ -110,14 +89,32 @@ require_once('../authen.php');
     <script src="../../assets/js/adminlte.min.js"></script>
 
     <script>
-        $(function() {
-            $('#formData').submit(function(e) {
-                e.preventDefault();
-                $.ajax({
-                    type: 'PUT',
-                    url: '../../service/manager/update.php',
-                    data: $('#formData').serialize()
-                }).done(function(resp) {
+    $(document).ready(function() {
+        // Image preview
+        $('#customFile').change(function() {
+            var inputFile = $(this);
+            var files = inputFile.get(0).files;
+            if (files && files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#imagePreview').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(files[0]);
+            }
+        });
+
+        // Form submission
+        $('#formData').submit(function(e) {
+            e.preventDefault();
+            var formData = new FormData($(this)[0]);
+            $.ajax({
+                type: 'POST',
+                url: 'update_doctor.php',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(response) {
                     Swal.fire({
                         text: 'อัพเดทข้อมูลเรียบร้อย',
                         icon: 'success',
@@ -125,9 +122,10 @@ require_once('../authen.php');
                     }).then((result) => {
                         location.assign('./');
                     });
-                })
+                }
             });
         });
+    });
     </script>
 
 </body>

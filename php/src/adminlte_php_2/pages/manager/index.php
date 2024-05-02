@@ -1,14 +1,8 @@
 <?php
 
-
 require_once('../authen.php');
 
-
 ?>
-
-
-<!-- <?php //require_once '../../service/connect.php' 
-        ?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +10,7 @@ require_once('../authen.php');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>จัดการรายชื่อเเพทย์ | Hospital</title>
+    <title>จัดการรายชื่อแพทย์ | Hospital</title>
     <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/hospital.png">
     <!-- stylesheet -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
@@ -28,11 +22,11 @@ require_once('../authen.php');
     <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <script>
-        // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
-        window.history.pushState(null, null, window.location.href);
-        window.onpopstate = function(event) {
-            history.go(1);
-        };
+    // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function(event) {
+        history.go(1);
+    };
     </script>
 </head>
 
@@ -49,12 +43,12 @@ require_once('../authen.php');
                                 <div class="card-header border-0 pt-4">
                                     <h4>
                                         <i class="fas fa-user-cog"></i>
-                                        รายชื่อเเพทย์
+                                        รายชื่อแพทย์
                                     </h4>
-                                    <!-- <a href="form-create.php" class="btn btn-primary mt-3">
+                                    <a href="form-create.php" class="btn btn-primary mt-3">
                                         <i class="fas fa-plus"></i>
                                         เพิ่มข้อมูล
-                                    </a> -->
+                                    </a>
                                 </div>
                                 <div class="card-body">
                                     <table id="logs" class="table table-hover" width="100%">
@@ -63,11 +57,10 @@ require_once('../authen.php');
                                                 <th>ลำดับ</th>
                                                 <th>ชื่อ</th>
                                                 <th>โรงพยาบาล</th>
-                                                <th>ตำเเหน่ง</th>
+                                                <th>ตำแหน่ง</th>
                                                 <th>การรักษา</th>
-                                                <!-- <th>ใช้งานล่าสุด</th> -->
-                                                <!-- <th>สิทธิ์เข้าใช้งาน</th> -->
                                                 <th>รูปภาพ</th>
+                                                <th>ตัวเลือก</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -97,25 +90,24 @@ require_once('../authen.php');
                                                 while ($row = $result->fetch_assoc()) {
                                                     $num++;
                                                     echo "<tr>";
-                                                    echo "<td> {$num} </td>";
-                                                    echo "<td> {$row['name']} </td>";
-                                                    echo "<td> {$row['hospital']} </td>";
-                                                    echo "<td> {$row['position']} </td>";
-                                                    echo "<td> {$row['specialization']} </td>";
-                                                    echo "<td> {$row['images']} </td>";
-                                                    // echo "<td> {$row['updated_at']} </td>";
+                                                    echo "<td>{$num}</td>";
+                                                    echo "<td>{$row['name']}</td>";
+                                                    echo "<td>{$row['hospital']}</td>";
+                                                    echo "<td>{$row['position']}</td>";
+                                                    echo "<td>{$row['specialization']}</td>";
+                                                    echo "<td>{$row['images']}</td>";
                                                     echo "<td> 
-            <a href='form-edit.php?id={$row['id']}' type='button' class='btn btn-warning text-white'>
-                <i class='far fa-edit'></i> แก้ไข
-            </a>
-            <button type='button' class='btn btn-danger' id='delete' data-id='{$row['id']}' data-index='{$row['id']}'>
-                <i class='far fa-trash-alt'></i> ลบ
-            </button>
-        </td>";
+                                                            <a href='form-edit.php?id={$row['id']}' type='button' class='btn btn-warning text-white'>
+                                                                <i class='far fa-edit'></i> แก้ไข
+                                                            </a>
+                                                            <button type='button' class='btn btn-danger delete' data-id='{$row['id']}'>
+                                                                <i class='far fa-trash-alt'></i> ลบ
+                                                            </button>
+                                                        </td>";
                                                     echo "</tr>";
                                                 }
                                             } else {
-                                                echo "ไม่พบข้อมูล";
+                                                echo "<tr><td colspan='7'>ไม่พบข้อมูล</td></tr>";
                                             }
 
                                             $conn->close();
@@ -147,54 +139,24 @@ require_once('../authen.php');
     <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
     <script>
-        // แสดงผลการทำงานสำเร็จด้วย sweet alert
-        if (window.location.search.includes('?delete=success')) {
-            Swal.fire("รายการของคุณถูกลบเรียบร้อย", "", "success");
-            history.replaceState(null, null, window.location.pathname);
-        }
-
-        $(function() {
-            $('#logs').DataTable({
-                initComplete: function() {
-                    $(document).on('click', '#delete', function() {
-                        let id = $(this).data('id')
-                        Swal.fire({
-                            text: "คุณแน่ใจหรือไม่...ที่จะลบรายการนี้?",
-                            icon: 'warning',
-                            showCancelButton: true,
-                            confirmButtonText: 'ใช่! ลบเลย',
-                            cancelButtonText: 'ยกเลิก'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href =
-                                    `../../service/manager/delete.php?id=${id}`;
-                            }
-                        })
-                    })
-                },
-                responsive: {
-                    details: {
-                        display: $.fn.dataTable.Responsive.display.modal({
-                            header: function(row) {
-                                var data = row.data()
-                                return 'ผู้ใช้งาน: ' + data[1]
-                            }
-                        }),
-                        renderer: $.fn.dataTable.Responsive.renderer.tableAll({
-                            tableClass: 'table'
-                        })
-                    }
-                },
-                language: {
-                    "lengthMenu": "แสดงข้อมูล _MENU_ แถว",
-                    "zeroRecords": "ไม่พบข้อมูลที่ต้องการ",
-                    "info": "แสดงหน้า _PAGE_ จาก _PAGES_",
-                    "infoEmpty": "ไม่พบข้อมูลที่ต้องการ",
-                    "infoFiltered": "(filtered from _MAX_ total records)",
-                    "search": 'ค้นหา'
+    $(document).ready(function() {
+        // แสดง Sweet Alert เมื่อคลิกที่ปุ่มลบ
+        $('.delete').click(function() {
+            var id = $(this).data('id');
+            Swal.fire({
+                text: "คุณแน่ใจหรือไม่ที่จะลบรายการนี้?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'ใช่! ลบเลย',
+                cancelButtonText: 'ยกเลิก'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // ส่งคำร้องขอลบไปยังหน้า delete.php พร้อมกับรหัส ID
+                    window.location.href = `delete.php?id=${id}`;
                 }
             })
-        })
+        });
+    });
     </script>
 
 </body>

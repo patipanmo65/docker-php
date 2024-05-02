@@ -11,3 +11,5 @@ print_r($_FILES);
 echo "</pre>";
 
 echo "<a href='../../pages/manager/'> กลับหน้าเดิม </a>"
+
+?>
