@@ -55,7 +55,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6 px-1 px-md-5">
-                                                <div class="form-group">
+                                                <!-- <div class="form-group">
                                                     <label for="customFile">รูปภาพ</label>
                                                     <div class="custom-file">
                                                         <input type="file" class="custom-file-input" id="customFile"
@@ -65,7 +65,7 @@
                                                     </div>
                                                     <img src="../../assets/images/avatar5.png" alt="Profile Image"
                                                         class="img-fluid p-3" id="imagePreview">
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>

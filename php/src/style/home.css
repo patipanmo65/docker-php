@@ -171,3 +171,9 @@ i {
   display: block; /* ทำให้ลิงค์เป็นบล็อกเพื่อให้สามารถจัดตำแหน่งภายในเซลล์ */
   text-align: left; /* จัดให้ข้อความอยู่ตรงกลางภายในลิงค์ */
 }
+
+.card-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

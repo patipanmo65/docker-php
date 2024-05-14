@@ -47,8 +47,8 @@ function generateNavbar(
                         <li><a class="dropdown-item" href="<?php echo $special_services_url; ?>">Special Services</a>
                         </li>
                         <li><a class="dropdown-item" href="<?php echo $doctor_list_url; ?>">รายชื่อแพทย์</a></li>
-                        <li><a href="./admin/admin_login.php" class="dropdown-item">เข้าสู่หน้า Admin</a></li>
-                        <li><a href="./adminlte_php_2/login.php" class="dropdown-item">เข้าสู่หน้า Admin2</a></li>
+                        <!-- <li><a href="./admin/admin_login.php" class="dropdown-item">เข้าสู่หน้า Admin</a></li> -->
+
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -92,6 +92,13 @@ function generateNavbar(
                     </ul>
                 </li>
             </ul>
+
+            <!-- admin login  -->
+            <div>
+
+                <a href="./adminlte_php_2/login.php" class="item" style="font-size: 16px;"> admin </a>
+
+            </div>
         </div>
     </div>
 </nav>

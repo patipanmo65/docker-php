@@ -34,48 +34,55 @@
                                         กลับหน้าหลัก
                                     </a>
                                 </div>
-                                <form name="formCreate" action="../../service/doctor/update.php" method="POST" enctype="multipart/form-data">
+                                <form name="formCreate" action="../../service/doctor/update.php" method="POST"
+                                    enctype="multipart/form-data">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6 px-1 px-md-5">
 
                                                 <div class="form-group">
                                                     <label for="first_name">ชื่อจริง</label>
-                                                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="ชื่อจริง" required>
+                                                    <input type="text" class="form-control" name="first_name"
+                                                        id="first_name" placeholder="ชื่อจริง" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="last_name">นามสกุล</label>
-                                                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="นามสกุล" required>
+                                                    <input type="text" class="form-control" name="last_name"
+                                                        id="last_name" placeholder="นามสกุล" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="hospital">โรงพยาบาล</label>
-                                                    <input type="text" class="form-control" name="hospital" id="hospital" placeholder="โรงพยาบาล" required>
+                                                    <input type="text" class="form-control" name="hospital"
+                                                        id="hospital" placeholder="โรงพยาบาล" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="position">ตำแหน่ง</label>
-                                                    <input type="text" class="form-control" name="position" id="position" placeholder="ตำแหน่ง" required>
+                                                    <input type="text" class="form-control" name="position"
+                                                        id="position" placeholder="ตำแหน่ง" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="specialization">การรักษา</label>
-                                                    <input type="text" class="form-control" name="specialization" id="specialization" placeholder="การรักษา" required>
+                                                    <input type="text" class="form-control" name="specialization"
+                                                        id="specialization" placeholder="การรักษา" required>
                                                 </div>
                                                 <input type="hidden" name="id" id="id" value="">
                                             </div>
                                             <div class="col-md-6 px-1 px-md-5">
-
+                                                <!-- 
                                                 <div class="form-group">
                                                     <label for="customFile">รูปโปรไฟล์</label>
                                                     <div class="custom-file">
                                                         <input type="file" class="custom-file-input" name="file" id="customFile" accept="image/*">
                                                         <label class="custom-file-label" for="customFile">เลือกรูปภาพ</label>
                                                     </div>
-                                                </div>
+                                                </div> -->
 
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-block mx-auto w-50" name="submit">บันทึกข้อมูล</button>
+                                        <button type="submit" class="btn btn-primary btn-block mx-auto w-50"
+                                            name="submit">บันทึกข้อมูล</button>
                                     </div>
                                 </form>
                             </div>
