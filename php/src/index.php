@@ -1,6 +1,6 @@
 <?php
 require_once('connect/connect.php');
-//require_once('connect.php');
+
 ?>
 
 
@@ -35,7 +35,7 @@ require_once('connect/connect.php');
 
     <!-- includes navbar เรียกใช้ Navbar -->
 
-    <?php require_once 'nav.php' ?>
+    <?php require_once ('nav.php') ?>
 
 
 

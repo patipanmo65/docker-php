@@ -33,20 +33,46 @@ $result = mysqli_query($conn, $sql);
         history.go(1);
     };
     </script>
+    <style>
     .flex-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #F5F8FF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #F5F8FF;
+    }
+
+    .table-responsive {
+        display: flex;
+        justify-content: center;
+    }
+
+    table {
+        margin: auto;
+    }
+
+    .table td,
+    .table th {
+        vertical-align: middle;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .modal-body p {
+        text-align: left;
+    }
+
+    .btn-group .btn {
+        width: 100px;
     }
     </style>
 </head>
 
 <body>
 
+    <!-- include side bar -->
+    <?php include_once('../includes/sidebar.php') ?>
 
-    <?php include_once ('../includes/sidebar.php') ?>
     <div class="flex-container">
         <div class="container">
             <div class="shadow rounded p-5 bg-body h-100">
@@ -67,8 +93,8 @@ $result = mysqli_query($conn, $sql);
                                         <th>#</th>
                                         <th>รายการ</th>
                                         <th>เนื้อหา</th>
-                                        <th>รูปภาพ</th>
-                                        <th>ไฟล์</th>
+                                        <!-- <th>รูปภาพ</th>
+                                            <th>ไฟล์</th> -->
 
                                         <th>#</th>
                                     </tr>
@@ -79,8 +105,10 @@ $result = mysqli_query($conn, $sql);
                                         <td> <?php echo $row['id'] ?> </td>
                                         <td> <?php echo $row['title'] ?> </td>
                                         <td> <?php echo $row['content'] ?> </td>
-                                        <td> <?php echo $row['image'] ?> </td>
-                                        <td> <?php echo $row['pdf_file'] ?> </td>
+                                        <!-- <td> <?php //echo $row['image'] 
+                                                            ?> </td>
+                                                <td> <?php //echo $row['pdf_file'] 
+                                                        ?> </td> -->
 
                                         <td>
                                             <div class="btn-group">
@@ -137,7 +165,9 @@ $result = mysqli_query($conn, $sql);
         </div>
     </div>
 
-    <?php include_once ('../includes/footer.php') ?>
+
+    <!-- include footer -->
+    <?php include_once('../includes/footer.php') ?>
     <!-- scripts -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
     <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

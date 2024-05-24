@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 
         if (move_uploaded_file($tempName, $pdfFilePath)) {
             // Update with the new file path
-            $sql = "UPDATE annual_reports SET title=?, content=?, pdf_file=? WHERE id=?";
+            $sql = "UPDATE budgets SET title=?, content=?, pdf_file=? WHERE id=?";
             $stmt = mysqli_prepare($conn, $sql);
             mysqli_stmt_bind_param($stmt, "sssi", $title, $content, $pdfFilePath, $id);
         } else {
@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
         }
     } else {
         // Update without changing the file
-        $sql = "UPDATE annual_reports SET title=?, content=? WHERE id=?";
+        $sql = "UPDATE budgets SET title=?, content=? WHERE id=?";
         $stmt = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($stmt, "ssi", $title, $content, $id);
     }

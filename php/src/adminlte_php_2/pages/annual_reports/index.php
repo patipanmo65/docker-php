@@ -41,6 +41,29 @@ $result = mysqli_query($conn, $sql);
         min-height: 100vh;
         background-color: #F5F8FF;
     }
+
+    .table-responsive {
+        display: flex;
+        justify-content: center;
+    }
+
+    table {
+        margin: auto;
+    }
+
+    .table td,
+    .table th {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .modal-body p {
+        text-align: left;
+    }
+
+    .btn-group .btn {
+        width: 100px;
+    }
     </style>
 </head>
 

@@ -27,18 +27,42 @@ $result = mysqli_query($conn, $sql);
     <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <script>
-        // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
-        window.history.pushState(null, null, window.location.href);
-        window.onpopstate = function(event) {
-            history.go(1);
-        };
+    // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function(event) {
+        history.go(1);
+    };
     </script>
+    <style>
     .flex-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #F5F8FF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #F5F8FF;
+    }
+
+    .table-responsive {
+        display: flex;
+        justify-content: center;
+    }
+
+    table {
+        margin: auto;
+    }
+
+    .table td,
+    .table th {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .modal-body p {
+        text-align: left;
+    }
+
+    .btn-group .btn {
+        width: 100px;
     }
     </style>
 </head>
@@ -61,61 +85,68 @@ $result = mysqli_query($conn, $sql);
                     <div class="col-lg-10">
                         <div class="table-responsive">
                             <?php if (mysqli_num_rows($result) > 0) : ?>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr class="text-center text-light bg-dark">
-                                            <th>#</th>
-                                            <th>โปรเจค</th>
-                                            <th>จำนวน</th>
-                                            <th>ปี</th>
-                                            <th>#</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php $i = 1; ?>
-                                        <?php while ($row = mysqli_fetch_assoc($result)) : ?>
-                                            <tr class="text-center">
-                                                <td> <?php echo $i++; ?> </td>
-                                                <td> <?php echo htmlspecialchars($row['project_name']); ?> </td>
-                                                <td> <?php echo number_format($row['amount']); ?> </td>
-                                                <td> <?php echo $row['year']; ?> </td>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="text-center text-light bg-dark">
+                                        <th>#</th>
+                                        <th>โปรเจค</th>
+                                        <th>จำนวน</th>
+                                        <th>ปี</th>
+                                        <th>#</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i = 1; ?>
+                                    <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+                                    <tr class="text-center">
+                                        <td> <?php echo $i++; ?> </td>
+                                        <td> <?php echo htmlspecialchars($row['project_name']); ?> </td>
+                                        <td> <?php echo number_format($row['amount']); ?> </td>
+                                        <td> <?php echo $row['year']; ?> </td>
 
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#my-modal<?php echo $row['id']; ?>" style="width: 105px;"> รายละเอียด
-                                                        </button>
-                                                        <a href="form-update.php?id=<?php echo $row['id']; ?>" class="btn btn-warning"> แก้ไข
-                                                        </a>
-                                                        <a href="php/delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger"> ลบ
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="my-modal<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">รายละเอียด</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <p>ชื่อโปรเจค: <?php echo htmlspecialchars($row['project_name']); ?>
-                                                            </p>
-                                                            <p>จำนวน: <?php echo number_format($row['amount']); ?> </p>
-                                                            <p>ปี: <?php echo $row['year']; ?> </p>
-                                                            <hr>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
-                                                            </button>
-                                                        </div>
-                                                    </div>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#my-modal<?php echo $row['id']; ?>"
+                                                    style="width: 105px;"> รายละเอียด
+                                                </button>
+                                                <a href="form-update.php?id=<?php echo $row['id']; ?>"
+                                                    class="btn btn-warning"> แก้ไข
+                                                </a>
+                                                <a href="php/delete.php?id=<?php echo $row['id']; ?>"
+                                                    class="btn btn-danger"> ลบ
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="my-modal<?php echo $row['id']; ?>" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">รายละเอียด</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>ชื่อโปรเจค: <?php echo htmlspecialchars($row['project_name']); ?>
+                                                    </p>
+                                                    <p>จำนวน: <?php echo number_format($row['amount']); ?> </p>
+                                                    <p>ปี: <?php echo $row['year']; ?> </p>
+                                                    <hr>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close
+                                                    </button>
                                                 </div>
                                             </div>
-                                        <?php endwhile; ?>
-                                    </tbody>
-                                </table>
+                                        </div>
+                                    </div>
+                                    <?php endwhile; ?>
+                                </tbody>
+                            </table>
                             <?php else :
                                 echo "<p class='mt-5'>ไม่มีข้อมูลในฐานข้อมูล</p>";
                             endif;

@@ -46,6 +46,29 @@ $result = mysqli_query($conn, $sql);
         min-height: 100vh;
         background-color: #F5F8FF;
     }
+
+    .table-responsive {
+        display: flex;
+        justify-content: center;
+    }
+
+    table {
+        margin: auto;
+    }
+
+    .table td,
+    .table th {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .modal-body p {
+        text-align: left;
+    }
+
+    .btn-group .btn {
+        width: 100px;
+    }
     </style>
 </head>
 
@@ -84,7 +107,8 @@ $result = mysqli_query($conn, $sql);
                                         <td> <?php echo $row['id'] ?> </td>
                                         <td> <?php echo $row['date'] ?> </td>
                                         <td> <?php echo $row['content'] ?> </td>
-                                        <td> <?php echo $row['pdf_file'] ?> </td>
+                                        <!-- <td> <?php //echo $row['pdf_file'] 
+                                                            ?> </td> -->
 
                                         <td>
                                             <div class="btn-group">

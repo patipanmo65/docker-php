@@ -15,8 +15,22 @@ $result = mysqli_query($conn, $sql);
     <title>เเก้ไขข้อมูล</title>
     <!-- favicons -->
     <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
-    <!-- Css -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <link rel="stylesheet" href="../../assets/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- Datatables -->
+    <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <script>
+    // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function(event) {
+        history.go(1);
+    };
+    </script>
     <style>
     .flex-container {
         display: flex;
@@ -25,12 +39,30 @@ $result = mysqli_query($conn, $sql);
         min-height: 100vh;
         background-color: #F5F8FF;
     }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .table-responsive {
+        display: flex;
+        justify-content: center;
+    }
+
+    table {
+        margin: auto;
+    }
     </style>
+
+
 </head>
 
 <body>
+    <?php include_once('../includes/sidebar.php') ?>
     <div class="flex-container">
-        <?php require_once ('connect/connect.php')?>
         <div class="container">
             <div class="shadow rounded p-5 bg-body h-100">
                 <div class="row justify-content-center">
@@ -127,6 +159,24 @@ $result = mysqli_query($conn, $sql);
 
         </div>
     </div>
+
+
+
+    <?php include_once('../includes/footer.php') ?>
+
+
+
+    <!-- scripts -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="../../assets/js/adminlte.min.js"></script>
+
+    <!-- datatables -->
+    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
     <!-- Bootstrap5 แบบ bundle คือการนำ Popper มารวมไว้ในไฟล์เดียว -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <?php mysqli_close($conn) ?>

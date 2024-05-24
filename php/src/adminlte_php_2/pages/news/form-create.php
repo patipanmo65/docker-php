@@ -30,6 +30,9 @@
 </head>
 
 <body>
+
+    <?php include_once('../includes/sidebar.php') ?>
+
     <div class="flex-container">
         <div class="container">
             <div class="shadow rounded p-5 bg-body h-100">
@@ -83,6 +86,11 @@
 
     <!-- Javascript -->
 
+    <!-- SCRIPTS -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../plugins/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="../../assets/js/adminlte.min.js"></script>
 
     <!-- Bootstrap5 แบบ bundle คือการนำ Popper มารวมไว้ในไฟล์เดียว -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

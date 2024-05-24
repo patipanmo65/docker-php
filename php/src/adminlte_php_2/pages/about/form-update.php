@@ -37,6 +37,17 @@ $row = mysqli_fetch_assoc($result);
     <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.css">
     <link rel="stylesheet" href="../../assets/css/adminlte.min.css">
     <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <!-- Datatables -->
+    <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <script>
+    // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function(event) {
+        history.go(1);
+    };
+    </script>
     <!-- style -->
     <style>
     .flex-container {
@@ -50,6 +61,7 @@ $row = mysqli_fetch_assoc($result);
 </head>
 
 <body>
+    <?php include_once ('../includes/sidebar.php') ?>
     <div class="flex-container">
         <div class="container">
             <div class="shadow rounded p-5 bg-body h-100">

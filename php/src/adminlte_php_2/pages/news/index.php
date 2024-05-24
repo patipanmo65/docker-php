@@ -13,6 +13,7 @@ $result = mysqli_query($conn, $sql);
     <title>เเก้ไขข้อมูล</title>
     <!-- favicons -->
     <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+
     <!-- Css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- stylesheet -->
@@ -27,20 +28,42 @@ $result = mysqli_query($conn, $sql);
     <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <script>
-        // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
-        window.history.pushState(null, null, window.location.href);
-        window.onpopstate = function(event) {
-            history.go(1);
-        };
+    // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function(event) {
+        history.go(1);
+    };
     </script>
     <style>
-        .flex-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: #F5F8FF;
-        }
+    .flex-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #F5F8FF;
+    }
+
+    .table-responsive {
+        display: flex;
+        justify-content: center;
+    }
+
+    table {
+        margin: auto;
+    }
+
+    .table td,
+    .table th {
+        vertical-align: middle;
+    }
+
+    .modal-body p {
+        text-align: left;
+    }
+
+    .btn-group .btn {
+        width: 100px;
+    }
     </style>
 </head>
 
@@ -57,67 +80,73 @@ $result = mysqli_query($conn, $sql);
             <div class="col-lg-12">
                 <div class="table-responsive">
                     <?php if (mysqli_num_rows($result) > 0) : ?>
-                        <table class="table table-bordered table-striped">
-                            <thead class="bg-dark text-light">
-                                <tr class="text-center">
-                                    <!-- <th>#</th> -->
-                                    <th>วันที่</th>
-                                    <th>เรื่อง</th>
-                                    <th>เนื้อหา</th>
-                                    <!-- <th>รูปภาพ</th> -->
-                                    <th>PDF</th>
-                                    <th>#</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php while ($row = mysqli_fetch_assoc($result)) : ?>
-                                    <tr class="text-center">
-                                        <!-- <td><?php //echo $row['id'] 
+                    <table class="table table-bordered table-striped">
+                        <thead class="bg-dark text-light">
+                            <tr class="text-center">
+                                <!-- <th>#</th> -->
+                                <th>วันที่</th>
+                                <th>เรื่อง</th>
+                                <th>เนื้อหา</th>
+                                <!-- <th>รูปภาพ</th> -->
+                                <!-- <th>PDF</th> -->
+                                <th>#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+                            <tr class="text-center">
+                                <!-- <td><?php //echo $row['id'] 
                                                     ?></td> -->
-                                        <td><?php echo $row['date'] ?></td>
-                                        <td><?php echo $row['title'] ?></td>
-                                        <td><?php echo $row['content'] ?></td>
-                                        <!-- <td><?php //echo $row['image'] 
+                                <td><?php echo $row['date'] ?></td>
+                                <td><?php echo $row['title'] ?></td>
+                                <td><?php echo $row['content'] ?></td>
+                                <!-- <td><?php //echo $row['image'] 
                                                     ?></td> -->
-                                        <td><?php echo $row['pdf_file'] ?></td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#my-modal<?php echo $row['id'] ?>" style="width: 105px;">
-                                                    รายละเอียด </button>
-                                                <a href="form-update.php?id=<?php echo $row['id'] ?>" class="btn btn-warning">
-                                                    แก้ไข </a>
-                                                <a href="php/delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger"> ลบ
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="my-modal<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">รายละเอียด</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>วันที่: <?php echo $row['date'] ?></p>
-                                                    <p>เรื่อง: <?php echo $row['title'] ?></p>
-                                                    <p>เนื้อหา: <?php echo $row['content'] ?></p>
-                                                    <!-- <p>รูปภาพ: <?php //echo $row['image'] 
+                                <!-- <td><?php //echo $row['pdf_file'] 
+                                                    ?></td> -->
+                                <td>
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#my-modal<?php echo $row['id'] ?>" style="width: 105px;">
+                                            รายละเอียด </button>
+                                        <a href="form-update.php?id=<?php echo $row['id'] ?>" class="btn btn-warning">
+                                            แก้ไข </a>
+                                        <a href="php/delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger"> ลบ
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Modal -->
+                            <div class="modal fade" id="my-modal<?php echo $row['id'] ?>" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">รายละเอียด</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>วันที่: <?php echo $row['date'] ?></p>
+                                            <p>เรื่อง: <?php echo $row['title'] ?></p>
+                                            <p>เนื้อหา: <?php echo $row['content'] ?></p>
+                                            <!-- <p>รูปภาพ: <?php //echo $row['image'] 
                                                                     ?></p> -->
-                                                    <p>PDF: <?php echo $row['pdf_file'] ?></p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                </div>
-                                            </div>
+                                            <!-- <p>PDF: <?php //echo $row['pdf_file'] 
+                                                                    ?></p> -->
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
                                         </div>
                                     </div>
-                                <?php endwhile; ?>
-                            </tbody>
-                        </table>
+                                </div>
+                            </div>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
                     <?php else : ?>
-                        <p class="mt-5">ไม่มีข้อมูลในฐานข้อมูล</p>
+                    <p class="mt-5">ไม่มีข้อมูลในฐานข้อมูล</p>
                     <?php endif; ?>
                 </div>
             </div>
@@ -129,18 +158,25 @@ $result = mysqli_query($conn, $sql);
     <?php include_once('../includes/footer.php') ?>
 
     <!-- scripts -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- <script src="../../plugins/jquery/jquery.min.js"></script>
     <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../plugins/sweetalert2/sweetalert2.min.js"></script>
     <script src="../../assets/js/adminlte.min.js"></script>
     <script src="../../plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
-    <script src="../../plugins/toastr/toastr.min.js"></script>
+    <script src="../../plugins/toastr/toastr.min.js"></script> -->
 
     <!-- datatables -->
     <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+
+    <!-- SCRIPTS -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../plugins/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="../../assets/js/adminlte.min.js"></script>
 
     <!-- Bootstrap5 แบบ bundle คือการนำ Popper มารวมไว้ในไฟล์เดียว -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

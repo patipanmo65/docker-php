@@ -44,14 +44,41 @@ $result = mysqli_query($conn, $sql);
         min-height: 100vh;
         background-color: #F5F8FF;
     }
+
+    .table-responsive {
+        display: flex;
+        justify-content: center;
+    }
+
+    table {
+        margin: auto;
+    }
+
+    .table td,
+    .table th {
+        vertical-align: middle;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .modal-body p {
+        text-align: left;
+    }
+
+    .btn-group .btn {
+        width: 100px;
+    }
     </style>
 </head>
 
 <body>
 
     <?php include_once '../includes/sidebar.php' ?>
+
     <div class="flex-container">
+
         <div class="container">
+
             <div class="shadow rounded p-5 bg-body h-100">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">

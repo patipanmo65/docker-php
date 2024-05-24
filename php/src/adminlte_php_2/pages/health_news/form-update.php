@@ -26,6 +26,24 @@ $row = mysqli_fetch_assoc($result);
     <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
     <!-- Css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <link rel="stylesheet" href="../../plugins/bootstrap-toggle/bootstrap-toggle.min.css">
+    <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css">
+    <link rel="stylesheet" href="../../assets/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- Datatables -->
+    <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <script>
+        // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function(event) {
+            history.go(1);
+        };
+    </script>
     <style>
         .flex-container {
             display: flex;
@@ -38,6 +56,8 @@ $row = mysqli_fetch_assoc($result);
 </head>
 
 <body>
+
+    <?php include_once('../includes/sidebar.php') ?>
     <div class="flex-container">
         <div class="container">
             <div class="shadow rounded p-5 bg-body h-100">
@@ -50,10 +70,11 @@ $row = mysqli_fetch_assoc($result);
                                 <input type="text" class="form-control" id="title" name="title" placeholder="ชื่อเรื่อง" value="<?php echo $row['title']; ?>" required>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-24">
                                 <label for="content" class="form-label">เนื้อหา</label>
-                                <textarea type="text" class="form-control" id="content" name="content" placeholder="เนื้อหา" value="<?php echo $row['content']; ?>" required></textarea>
+                                <textarea class="form-control" id="content" name="content" placeholder="เนื้อหา" required><?php echo $row['content']; ?></textarea>
                             </div>
+
                             <div class="col-md-6">
                                 <label for="image" class="form-label">รูปภาพ</label>
                                 <input type="file" class="form-control" id="image" name="image">
@@ -77,6 +98,11 @@ $row = mysqli_fetch_assoc($result);
     </div>
 
     <!-- Javascript -->
+    <!-- SCRIPTS -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../plugins/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="../../assets/js/adminlte.min.js"></script>
     <!-- Bootstrap5 แบบ bundle คือการนำ Popper มารวมไว้ในไฟล์เดียว -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -22,11 +22,11 @@ require_once('../authen.php');
     <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <script>
-        // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
-        window.history.pushState(null, null, window.location.href);
-        window.onpopstate = function(event) {
-            history.go(1);
-        };
+    // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function(event) {
+        history.go(1);
+    };
     </script>
 </head>
 
@@ -139,24 +139,24 @@ require_once('../authen.php');
     <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            // แสดง Sweet Alert เมื่อคลิกที่ปุ่มลบ
-            $('.delete').click(function() {
-                var id = $(this).data('id');
-                Swal.fire({
-                    text: "คุณแน่ใจหรือไม่ที่จะลบรายการนี้?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'ใช่! ลบเลย',
-                    cancelButtonText: 'ยกเลิก'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        // ส่งคำร้องขอลบไปยังหน้า delete.php พร้อมกับรหัส ID
-                        window.location.href = `delete.php?id=${id}`;
-                    }
-                })
-            });
+    $(document).ready(function() {
+        // แสดง Sweet Alert เมื่อคลิกที่ปุ่มลบ
+        $('.delete').click(function() {
+            var id = $(this).data('id');
+            Swal.fire({
+                text: "คุณแน่ใจหรือไม่ที่จะลบรายการนี้?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'ใช่! ลบเลย',
+                cancelButtonText: 'ยกเลิก'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // ส่งคำร้องขอลบไปยังหน้า delete.php พร้อมกับรหัส ID
+                    window.location.href = `delete.php?id=${id}`;
+                }
+            })
         });
+    });
     </script>
 
 </body>
