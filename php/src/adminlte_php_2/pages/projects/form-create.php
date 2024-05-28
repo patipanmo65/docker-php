@@ -21,25 +21,25 @@
     <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <script>
-    // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
-    window.history.pushState(null, null, window.location.href);
-    window.onpopstate = function(event) {
-        history.go(1);
-    };
+        // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function(event) {
+            history.go(1);
+        };
     </script>
     <style>
-    .flex-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        background-color: #F5F8FF;
-    }
+        .flex-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #F5F8FF;
+        }
     </style>
 </head>
 
 <body>
-    <?php include_once ('../includes/sidebar.php') ?>
+    <?php include_once('../includes/sidebar.php') ?>
     <div class="flex-container">
         <div class="container">
             <div class="shadow rounded p-5 bg-body h-100">
@@ -50,8 +50,7 @@
                         <form class="row gy-4" action="php/create.php" method="POST" enctype="multipart/form-data">
                             <div class="col-md-6">
                                 <label for="title" class="form-label">ชื่อ</label>
-                                <input type="text" class="form-control" id="title" name="title" placeholder="ชื่อ"
-                                    required>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="ชื่อ" required>
                             </div>
 
                             <div class="col-md-12">
@@ -60,8 +59,7 @@
                             </div>
 
                             <div class="col-12">
-                                <button type="submit" name="submit"
-                                    class="btn btn-primary d-block mx-auto">บันทึกการเปลี่ยนแปลง</button>
+                                <button type="submit" name="submit" class="btn btn-primary d-block mx-auto">บันทึกการเปลี่ยนแปลง</button>
                             </div>
                         </form>
 

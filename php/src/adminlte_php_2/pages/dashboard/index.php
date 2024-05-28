@@ -3,20 +3,20 @@
 require_once('./php/connect.php'); // เรียกใช้การเชื่อมต่อฐานข้อมูล
 require_once('../authen.php');
 
-// ดึงข้อมูลจากฐานข้อมูลสำหรับแต่ละตาราง
+// ดึงข้อมูลจากฐานข้อมูลสำหรับแต่ละตาราง มา รวามกัน
 $sql1 = "SELECT COUNT(*) as total FROM annual_reports";
 $result1 = $conn->query($sql1);
 $totalReports = $result1->fetch_assoc()['total'];
 
-$sql2 = "SELECT COUNT(*) as total FROM activities"; // เปลี่ยน table2 เป็นชื่อของตารางที่ต้องการ
+$sql2 = "SELECT COUNT(*) as total FROM activities";
 $result2 = $conn->query($sql2);
 $totalReports2 = $result2->fetch_assoc()['total'];
 
-$sql3 = "SELECT COUNT(*) as total FROM news"; // เปลี่ยน table3 เป็นชื่อของตารางที่ต้องการ
+$sql3 = "SELECT COUNT(*) as total FROM news";
 $result3 = $conn->query($sql3);
 $totalReports3 = $result3->fetch_assoc()['total'];
 
-$sql4 = "SELECT COUNT(*) as total FROM feedback"; // เปลี่ยน table4 เป็นชื่อของตารางที่ต้องการ
+$sql4 = "SELECT COUNT(*) as total FROM feedback";
 $result4 = $conn->query($sql4);
 $totalReports4 = $result4->fetch_assoc()['total'];
 
@@ -50,9 +50,9 @@ $conn->close();
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-info shadow">
                                 <div class="inner text-center">
-                                    <h1 class="py-3">&nbsp;รายชื่อเเพทย์&nbsp;</h1>
+                                    <h1 class="py-3">&nbsp;ข่าวประชาสัมพันธ์&nbsp;</h1>
                                 </div>
-                                <a href="../manager/" class="small-box-footer py-3"> คลิกจัดการข้อมูล <i
+                                <a href="../health_news/" class="small-box-footer py-3"> คลิกจัดการข้อมูล <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
@@ -61,25 +61,25 @@ $conn->close();
                                 <div class="inner text-center">
                                     <h1 class="py-3">&nbsp;กิจกรรม&nbsp;</h1>
                                 </div>
-                                <a href="../activities/" class="small-box-footer py-3"> คลิกจัดการระบบ <i
+                                <a href="../activities/" class="small-box-footer py-3"> คลิกจัดการกิจกรรม <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-success shadow">
                                 <div class="inner text-center">
-                                    <h1 class="py-3">ข่าว</h1>
+                                    <h1 class="py-3">&nbsp;ข่าว&nbsp;</h1>
                                 </div>
-                                <a href="../news/" class="small-box-footer py-3"> คลิกจัดการระบบ <i
+                                <a href="../news/" class="small-box-footer py-3"> คลิกจัดการข่าว <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-info shadow">
                                 <div class="inner text-center">
-                                    <h1 class="py-3">inbox</h1>
+                                    <h1 class="py-3">&nbsp;ข้อความ&nbsp;</h1>
                                 </div>
-                                <a href="../feedback/" class="small-box-footer py-3"> คลิกจัดการระบบ <i
+                                <a href="../feedback/" class="small-box-footer py-3"> คลิกจัดการข้อความ <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
@@ -92,7 +92,7 @@ $conn->close();
                             <div class="small-box py-3 bg-white shadow">
                                 <div class="inner">
                                     <h3><?php echo number_format($totalReports); ?> รายการ</h3>
-                                    <p class="text-danger">รวมข้อมูลทั้งหมด</p>
+                                    <p class="text-danger">ข้อมูลทั้งหมด</p>
                                 </div>
                                 <div class="icon">
                                     <!-- <i class="fas fa-chart-bar"></i> -->
@@ -140,8 +140,8 @@ $conn->close();
                                 <div class="card-body">
                                     <div class="d-flex">
                                         <p class="d-flex flex-column">
-                                            <span class="text-bold text-xl">1000</span>
-                                            <span class="text-danger">ข่าววันนี้</span>
+                                            <span class="text-bold text-xl"></span>
+                                            <span class="text-danger">อัพเดทข้อมูลเพิ่มล่าสุด</span>
                                         </p>
                                     </div>
                                     <div class="position-relative">
@@ -220,7 +220,7 @@ $conn->close();
         }
 
         // สร้าง array เก็บข้อมูลรายการและจำนวนรายการ
-        var labels = [' รายชื่อเเพทย์ ', 'กิจกรรม', 'ข่าว', 'inbox']; // เปลี่ยนเป็นชื่อรายงานที่ต้องการ
+        var labels = [' รายชื่อเเพทย์ ', 'กิจกรรม', 'ข่าว', 'ข้อความ']; // เปลี่ยนเป็นชื่อรายงานที่ต้องการ
         var values = [<?php echo $totalReports; ?>, <?php echo $totalReports2; ?>,
             <?php echo $totalReports3; ?>, <?php echo $totalReports4; ?>
         ]; // ใช้ค่าจำนวนที่ดึงมาจากฐานข้อมูล

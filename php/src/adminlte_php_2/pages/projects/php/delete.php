@@ -1,14 +1,15 @@
 <?php
 
 require_once('connect.php');
+
 if (isset($_GET['id'])) {
     $sql = "DELETE FROM projects WHERE id = '" . mysqli_real_escape_string($conn, $_GET['id']) . "' ";
     if (mysqli_query($conn, $sql)) {
-        echo '<script> alert("ลบข้อมูลเสร็จเรียบร้อย")</script>';
-        header('Refresh:0; url= ../');
+        // Use JavaScript to show an alert after redirection
+        echo '<script> alert("ลบข้อมูลเสร็จเรียบร้อย"); window.location.href = "../"; </script>';
     } else {
-        echo '<script> alert("ลบข้อมูลไม่สำเร็จ")</script>';
-        header('Refresh:0; url= ../');
+        echo '<script> alert("ลบข้อมูลไม่สำเร็จ"); window.location.href = "../"; </script>';
     }
 }
+
 mysqli_close($conn);

@@ -64,6 +64,12 @@ $result = mysqli_query($conn, $sql);
     .btn-group .btn {
         width: 100px;
     }
+
+    /* 
+    .modal-custom {
+        max-width: 90%;
+        
+    } */
     </style>
 </head>
 
@@ -86,7 +92,7 @@ $result = mysqli_query($conn, $sql);
                                 <!-- <th>#</th> -->
                                 <th>วันที่</th>
                                 <th>เรื่อง</th>
-                                <th>เนื้อหา</th>
+                                <!-- <th>เนื้อหา</th> -->
                                 <!-- <th>รูปภาพ</th> -->
                                 <!-- <th>PDF</th> -->
                                 <th>#</th>
@@ -99,7 +105,8 @@ $result = mysqli_query($conn, $sql);
                                                     ?></td> -->
                                 <td><?php echo $row['date'] ?></td>
                                 <td><?php echo $row['title'] ?></td>
-                                <td><?php echo $row['content'] ?></td>
+                                <!-- <td><?php //echo $row['content'] 
+                                                    ?></td> -->
                                 <!-- <td><?php //echo $row['image'] 
                                                     ?></td> -->
                                 <!-- <td><?php //echo $row['pdf_file'] 
@@ -119,7 +126,7 @@ $result = mysqli_query($conn, $sql);
                             <!-- Modal -->
                             <div class="modal fade" id="my-modal<?php echo $row['id'] ?>" tabindex="-1"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
+                                <div class="modal-dialog modal-custom">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">รายละเอียด</h5>
@@ -130,10 +137,8 @@ $result = mysqli_query($conn, $sql);
                                             <p>วันที่: <?php echo $row['date'] ?></p>
                                             <p>เรื่อง: <?php echo $row['title'] ?></p>
                                             <p>เนื้อหา: <?php echo $row['content'] ?></p>
-                                            <!-- <p>รูปภาพ: <?php //echo $row['image'] 
-                                                                    ?></p> -->
-                                            <!-- <p>PDF: <?php //echo $row['pdf_file'] 
-                                                                    ?></p> -->
+                                            <!-- <p>รูปภาพ: <?php //echo $row['image'] ?></p> -->
+                                            <!-- <p>PDF: <?php //echo $row['pdf_file'] ?></p> -->
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
@@ -142,15 +147,19 @@ $result = mysqli_query($conn, $sql);
                                     </div>
                                 </div>
                             </div>
-                            <?php endwhile; ?>
-                        </tbody>
-                    </table>
-                    <?php else : ?>
-                    <p class="mt-5">ไม่มีข้อมูลในฐานข้อมูล</p>
-                    <?php endif; ?>
+
+
                 </div>
+
+                <?php endwhile; ?>
+                </tbody>
+                </table>
+                <?php else : ?>
+                <p class="mt-5">ไม่มีข้อมูลในฐานข้อมูล</p>
+                <?php endif; ?>
             </div>
         </div>
+    </div>
     </div>
 
 

@@ -74,11 +74,7 @@
                     </div>
                 </div>
             </div>
-            <p class="fw-bolder text-secondary text-center">
-                ผู้เขียน: Yothin Sapsamran <span class="text-danger fs-3" style="vertical-align: sub;">♥️</span>
-                <a class="border-bottom border-2 border-primary text-decoration-none" href="https://appzstory.dev"> Jame
-                    AppzStory Studio</a>
-            </p>
+
         </div>
     </div>
 

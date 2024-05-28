@@ -39,9 +39,12 @@ if (isset($_POST['submit'])) {
                 mysqli_stmt_bind_param($stmt, "ssss", $title, $content, $pdfFilePath, $imageFilePath);
 
                 if (mysqli_stmt_execute($stmt)) {
-                    echo "เพิ่มข้อมูลเสร็จเรียบร้อย";
-                    header('Location: ../');
-                    exit();
+                    // Success message and redirection using JavaScript
+                    echo '<script>
+                            alert("เพิ่มข้อมูลเสร็จเรียบร้อย");
+                            window.location.href = "../";
+                          </script>';
+                    exit(); // Stop further execution of PHP code
                 } else {
                     echo "เพิ่มข้อมูลไม่สำเร็จ";
                 }
@@ -63,9 +66,3 @@ if (isset($_POST['submit'])) {
 
 // Close connection
 mysqli_close($conn);
-?>
-
-
-
-
-// upload รูปภาพ ให้เข้า folder uploads ลบรูปเก่า

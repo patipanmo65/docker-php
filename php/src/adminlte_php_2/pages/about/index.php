@@ -25,36 +25,36 @@ $result = mysqli_query($conn, $sql);
     <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <script>
-    // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
-    window.history.pushState(null, null, window.location.href);
-    window.onpopstate = function(event) {
-        history.go(1);
-    };
+        // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function(event) {
+            history.go(1);
+        };
     </script>
     <style>
-    .flex-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        background-color: #F5F8FF;
-    }
+        .flex-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #F5F8FF;
+        }
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .table-responsive {
-        display: flex;
-        justify-content: center;
-    }
+        .table-responsive {
+            display: flex;
+            justify-content: center;
+        }
 
-    table {
-        margin: auto;
-    }
+        table {
+            margin: auto;
+        }
     </style>
 
 
@@ -76,77 +76,71 @@ $result = mysqli_query($conn, $sql);
                     <div class="col-lg-10">
                         <div class="table-responsive">
                             <?php if (mysqli_num_rows($result) > 0) : ?>
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr class="text-center text-light bg-dark">
-                                        <th>#</th>
-                                        <th>ชื่อ</th>
-                                        <th>โรงพยาบาล</th>
-                                        <th>ตำเเหน่ง</th>
-                                        <th>รายการ</th>
-                                        <th>#</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr class="text-center text-light bg-dark">
+                                            <!-- <th>#</th> -->
+                                            <th>ชื่อ</th>
+                                            <th>โรงพยาบาล</th>
+                                            <th>ตำเเหน่ง</th>
+                                            <th>รายการ</th>
+                                            <th>#</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                    <!-- ดึงข้อมูล จาก table มาเเสดง ใน row  -->
-                                    <?php while ($row = mysqli_fetch_assoc($result)) : ?>
-                                    <tr class="text-center">
-                                        <td> <?php echo $row['id'] ?> </td>
-                                        <td> <?php echo $row['name'] ?> </td>
-                                        <td> <?php echo $row['hospital'] ?> </td>
-                                        <td> <?php echo $row['position']  ?> </td>
-                                        <td> <?php echo $row['specialization'] ?> </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#my-modal<?php echo $row['id'] ?>"
-                                                    style="width: 105px;"> รายละเอียด </button>
-                                                <a href="form-update.php?id=<?php echo $row['id'] ?>"
-                                                    class="btn btn-warning"> แก้ไข </a>
-                                                <a href="php/delete.php?id=<?php echo $row['id'] ?>"
-                                                    class="btn btn-danger"> ลบ </a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                        <!-- ดึงข้อมูล จาก table มาเเสดง ใน row  -->
+                                        <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+                                            <tr class="text-center">
+                                                <!-- <td> <?php //echo $row['id'] 
+                                                            ?> </td> -->
+                                                <td> <?php echo $row['name'] ?> </td>
+                                                <td> <?php echo $row['hospital'] ?> </td>
+                                                <td> <?php echo $row['position']  ?> </td>
+                                                <td> <?php echo $row['specialization'] ?> </td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#my-modal<?php echo $row['id'] ?>" style="width: 105px;"> รายละเอียด </button>
+                                                        <a href="form-update.php?id=<?php echo $row['id'] ?>" class="btn btn-warning"> แก้ไข </a>
+                                                        <a href="php/delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger"> ลบ </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
 
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="my-modal<?php echo $row['id'] ?>" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">รายละเอียดสินค้า</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="my-modal<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">รายละเอียด</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
 
-                                                <!-- ดึงข้อมูล จาก ฐานข้อมูล มาเเสดง  ใน row -->
+                                                        <!-- ดึงข้อมูล จาก ฐานข้อมูล มาเเสดง  ใน row -->
 
-                                                <div class="modal-body">
-                                                    <p>ชื่อ: <?php echo $row['name'] ?></p>
-                                                    <p>โรงพยาบาล: <?php echo $row['hospital'] ?></p>
-                                                    <p>ตำเเหน่ง: <?php echo $row['position'] ?></p>
-                                                    <p>รายละเอียด: <?php echo $row['specialization'] ?></p>
-                                                    <!-- 
+                                                        <div class="modal-body">
+                                                            <p>ชื่อ: <?php echo $row['name'] ?></p>
+                                                            <p>โรงพยาบาล: <?php echo $row['hospital'] ?></p>
+                                                            <p>ตำเเหน่ง: <?php echo $row['position'] ?></p>
+                                                            <p>รายละเอียด: <?php echo $row['specialization'] ?></p>
+                                                            <!-- 
                                                             <hr>
                                                             <p>วันที่สร้าง: <?php //echo dateThai($row['created_at']) 
                                                                             ?></p>
                                                             <p>วันที่แก้ไข: <?php //echo dateThai($row['updated_at']) 
                                                                             ?></p> -->
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
 
-                                    <!-- จบ loop while -->
-                                    <?php endwhile; ?>
-                                </tbody>
-                            </table>
+                                            <!-- จบ loop while -->
+                                        <?php endwhile; ?>
+                                    </tbody>
+                                </table>
                             <?php
                             else :
                                 echo "<p class='mt-5'>ไม่มีข้อมูลในฐานข้อมูล</p>";

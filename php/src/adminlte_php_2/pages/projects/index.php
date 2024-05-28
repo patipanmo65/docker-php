@@ -47,6 +47,7 @@ $result = mysqli_query($conn, $sql);
 <body>
 
     <?php include_once('../includes/sidebar.php') ?>
+
     <div class="flex-container">
         <div class="container">
             <div class="shadow rounded p-5 bg-body h-100">
@@ -64,7 +65,7 @@ $result = mysqli_query($conn, $sql);
                             <table class="table table-bordered">
                                 <thead>
                                     <tr class="text-center text-light bg-dark">
-                                        <th>#</th>
+                                        <!-- <th>#</th> -->
                                         <th>ชื่อ</th>
                                         <th>รายละเอียด</th>
 
@@ -75,8 +76,9 @@ $result = mysqli_query($conn, $sql);
                                 <tbody>
                                     <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                                     <tr class="text-center">
-                                        <td> <?php echo $row['id'] ?> </td>
-                                        <td> <?php echo $row['name'] ?> </td>
+                                        <!-- <td> <?php //echo $row['id'] 
+                                                            ?> </td> -->
+                                        <td> <?php echo $row['pj_name'] ?> </td>
                                         <td> <?php echo $row['description'] ?> </td>
 
 
@@ -106,7 +108,7 @@ $result = mysqli_query($conn, $sql);
                                                 <div class="modal-body">
                                                     <!-- <p>ชื่อเรื่อง: <?php //echo $row['name'] 
                                                                                 ?></p> -->
-                                                    <p>วันที่: <?php echo $row['name'] ?></p>
+                                                    <p>วันที่: <?php echo $row['pj_name'] ?></p>
                                                     <p>เนื้อหา: <?php echo $row['description'] ?> </p>
                                                     <!-- <p>ราคา: <?php //echo $row['pdf_file'] 
                                                                             ?> </p> -->
@@ -141,7 +143,8 @@ $result = mysqli_query($conn, $sql);
         </div>
     </div>
 
-    <?php include_once ('../includes/footer.php') ?>
+
+    <?php include_once('../includes/footer.php') ?>
     <!-- scripts -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
     <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

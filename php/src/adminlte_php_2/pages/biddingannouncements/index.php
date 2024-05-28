@@ -15,8 +15,6 @@ $result = mysqli_query($conn, $sql);
     <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
 
 
-
-
     <!-- Css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- stylesheet -->
@@ -93,7 +91,7 @@ $result = mysqli_query($conn, $sql);
                             <table class="table table-bordered">
                                 <thead>
                                     <tr class="text-center text-light bg-dark">
-                                        <th>#</th>
+                                        <!-- <th>#</th> -->
                                         <th>วันที่</th>
                                         <th>เนื้อหา</th>
                                         <!-- <th>ไฟล์</th> -->
@@ -104,7 +102,8 @@ $result = mysqli_query($conn, $sql);
                                 <tbody>
                                     <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                                     <tr class="text-center">
-                                        <td> <?php echo $row['id'] ?> </td>
+                                        <!-- <td> <?php //echo $row['id'] 
+                                                            ?> </td> -->
                                         <td> <?php echo $row['date'] ?> </td>
                                         <td> <?php echo $row['content'] ?> </td>
                                         <!-- <td> <?php //echo $row['pdf_file'] 
@@ -166,11 +165,7 @@ $result = mysqli_query($conn, $sql);
                     </div>
                 </div>
             </div>
-            <!-- <p class="fw-bolder text-secondary text-center">
-                ผู้เขียน: Yothin Sapsamran <span class="text-danger fs-3" style="vertical-align: sub;">♥️</span>
-                <a class="border-bottom border-2 border-primary text-decoration-none" href="https://appzstory.dev"> Jame
-                    AppzStory Studio</a>
-            </p> -->
+
         </div>
     </div>
 

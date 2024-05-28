@@ -14,7 +14,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
     <meta name="theme-color" content="#563d7c" />
 
 
@@ -24,10 +26,14 @@
 
     <?php require_once '../../nav.php' ?>
 
-    <img src="https://placehold.co/1536x600" class="img-fluid" alt="...">
     <br>
     <main>
+
         <div class="container">
+            <img src="http://www.puahospital.go.th/wp-content/uploads/2023/11/394562771_1411032742969444_1267544575422092356_n-1536x1024.jpg"
+                class="img-fluid" alt="..." style="max-width: 500px; height: auto;">
+            <br>
+            <br>
             <h5>รวมโครงการและงบประมาณตามแผนยุทธศาสตร์โรงพยาบาลสมเด็จพระยุพราช</h5>
 
             <ul>
@@ -38,11 +44,11 @@
 
             </ul>
 
+            <img src="http://www.puahospital.go.th/wp-content/uploads/2023/11/395364700_1411031469636238_5221975662196760921_n-1536x1024.jpg"
+                class="img-fluid" alt="..." style="max-width: 900px; height: auto;">
         </div>
-        <img src="https://placehold.co/1536x300" class="img-fluid" alt="...">
         <br>
     </main>
-
 
 
 

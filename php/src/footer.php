@@ -180,18 +180,18 @@ $medical_hosxp_export_url = "/pages/medical/hosxp-2566-export-list.php";
 
 <body>
 
-
+    <!-- footer -->
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <div class="social-media-icons">
+                    <!-- <div class="social-media-icons">
                         <a href="#" class="social-media-icon"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="social-media-icon"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="social-media-icon"><i class="fab fa-line"></i></a>
-                        <!-- <a href="#" class="social-media-icon"><i class="bi bi-facebook"></i></a> -->
+                        
 
-                    </div>
+                    </div> -->
                     <a class="navbar-brand" href="index.php">
                         <img src="http://www.puahospital.go.th/wp-content/uploads/2019/11/cropped-loogo-600x745-242x300.png" width="30" height="30" class="d-inline-block align-center" alt="" loading="lazy">
                         Pua Crown Prince Hospital

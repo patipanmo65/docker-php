@@ -87,11 +87,11 @@ $result = mysqli_query($conn, $sql);
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr class="text-center text-light bg-dark">
-                                            <th>#</th>
+                                            <!-- <th>#</th> -->
                                             <th>รายการ</th>
                                             <th>เนื้อหา</th>
                                             <!-- <th>รูปภาพ</th> -->
-                                            <th>ไฟล์</th>
+                                            <!-- <th>ไฟล์</th> -->
 
                                             <th>#</th>
                                         </tr>
@@ -99,12 +99,14 @@ $result = mysqli_query($conn, $sql);
                                     <tbody>
                                         <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                                             <tr class="text-center">
-                                                <td> <?php echo $row['id'] ?> </td>
+                                                <!-- <td> <?php //echo $row['id'] 
+                                                            ?> </td> -->
                                                 <td> <?php echo $row['title'] ?> </td>
                                                 <td> <?php echo $row['content'] ?> </td>
                                                 <!-- <td> <?php //echo $row['image'] 
                                                             ?> </td> -->
-                                                <td> <?php echo $row['pdf_file'] ?> </td>
+                                                <!-- <td> <?php //echo $row['pdf_file'] 
+                                                            ?> </td> -->
 
                                                 <td>
                                                     <div class="btn-group">

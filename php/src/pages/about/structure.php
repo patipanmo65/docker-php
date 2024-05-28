@@ -40,7 +40,7 @@
             <br>
             <div class="d-flex justify-content-center">
                 <div class="card" style="width: 18rem;">
-                    <img src="https://avatar.iran.liara.run/public/38" alt="..." class="img-thumbnail">
+                    <img src="https://avatar.iran.liara.run/public/job/doctor/male" alt="..." class="img-thumbnail">
                     <div class="card-body">
                         <p class="card-text text-center">นพ.</p>
                     </div>
@@ -51,28 +51,28 @@
 
             <div class="card-deck">
                 <div class="card">
-                    <img src="https://avatar.iran.liara.run/public/17" class="card-img-top" alt="...">
+                    <img src="https://avatar.iran.liara.run/public/job/doctor/male" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">นพ.</h5>
 
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://avatar.iran.liara.run/public/38" class="card-img-top" alt="...">
+                    <img src="https://avatar.iran.liara.run/public/job/doctor/male" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">นพ.</h5>
 
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://avatar.iran.liara.run/public/21" class="card-img-top" alt="...">
+                    <img src="https://avatar.iran.liara.run/public/job/doctor/male" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">นพ.</h5>
 
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://avatar.iran.liara.run/public/21" class="card-img-top" alt="...">
+                    <img src="https://avatar.iran.liara.run/public/job/doctor/male  " class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">นพ.</h5>
 
@@ -82,28 +82,28 @@
 
             <div class="card-deck">
                 <div class="card">
-                    <img src="https://avatar.iran.liara.run/public/36" class="card-img-top" alt="...">
+                    <img src="https://avatar.iran.liara.run/public/job/doctor/male" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">นพ.</h5>
 
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://avatar.iran.liara.run/public/36" class="card-img-top" alt="...">
+                    <img src="https://avatar.iran.liara.run/public/job/doctor/male" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">นพ.</h5>
 
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://avatar.iran.liara.run/public/36" class="card-img-top" alt="...">
+                    <img src="https://avatar.iran.liara.run/public/job/doctor/male" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">นพ.</h5>
 
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://avatar.iran.liara.run/public/36" class="card-img-top" alt="...">
+                    <img src="https://avatar.iran.liara.run/public/job/doctor/male" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">นพ.</h5>
 
@@ -114,28 +114,28 @@
 
             <div class="card-deck">
                 <div class="card">
-                    <img src="https://avatar.iran.liara.run/public/36" class="card-img-top" alt="...">
+                    <img src="https://avatar.iran.liara.run/public/job/doctor/male" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">นพ.</h5>
 
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://avatar.iran.liara.run/public/17" class="card-img-top" alt="...">
+                    <img src="https://avatar.iran.liara.run/public/job/doctor/male" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">นพ.</h5>
 
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://avatar.iran.liara.run/public/17" class="card-img-top" alt="...">
+                    <img src="https://avatar.iran.liara.run/public/job/doctor/male" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">นพ.</h5>
 
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://avatar.iran.liara.run/public/17" class="card-img-top" alt="...">
+                    <img src="https://avatar.iran.liara.run/public/job/doctor/male" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">นพ.</h5>
 
@@ -152,20 +152,11 @@
 
 
 
-
-
-
-
     <?php require_once '../../footer.php' ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-
-
-
 
 
 </body>

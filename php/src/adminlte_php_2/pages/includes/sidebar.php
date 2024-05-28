@@ -52,31 +52,35 @@ function isActive($data)
                         <p>หน้าหลัก</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="../manager/" class="nav-link <?php echo isActive('manager') ?>">
+                <!-- <li class="nav-item">
+                    <a href="../manager/" class="nav-link <?php //echo isActive('manager') 
+                                                            ?>">
                         <i class="nav-icon fas fa-user-cog"></i>
                         <p>รายชื่อเเพทย์</p>
                     </a>
-                </li>
+                </li> -->
                 <!-- <li class="nav-item">
-                    <a href="../blankpage/" class="nav-link <?php echo isActive('blankpage') ?>">
+                    <a href="../blankpage/" class="nav-link <?php //echo isActive('blankpage') 
+                                                            ?>">
                         <i class="nav-icon fas fa-user-cog"></i>
                         <p>ตารางเเพทย์ </p>
                     </a>
                 </li> -->
                 <!-- <li class="nav-item">
-                    <a href="../calendar/" class="nav-link <?php echo isActive('calendar') ?>">
+                    <a href="../calendar/" class="nav-link <?php //echo isActive('calendar') 
+                                                            ?>">
                         <i class="nav-icon fas fa-user-cog"></i>
                         <p>ปฏิทินกิจกรรม</p>
                     </a>
                 </li> -->
                 <!-- menu about -->
-                <li class="nav-item">
-                    <a href="../about/" class="nav-link <?php echo isActive('about') ?>">
+                <!-- <li class="nav-item">
+                    <a href="../about/" class="nav-link <?php //echo isActive('about') 
+                                                        ?>">
                         <i class="nav-icon fas fa-address-card"></i>
                         <p>เกี่ยวกับ</p>
                     </a>
-                </li>
+                </li> -->
                 <!-- <li class="nav-item">
                     <a href="../medical/" class="nav-link <?php //echo isActive('medical') 
                                                             ?>">
@@ -103,7 +107,8 @@ function isActive($data)
                     </a>
                 </li>
                 <!-- <li class="nav-item">
-                    <a href="../services/" class="nav-link <?php echo isActive('services') ?>">
+                    <a href="../services/" class="nav-link <?php //echo isActive('services') 
+                                                            ?>">
                         <i class="nav-icon fas fa-user-cog"></i>
                         <p>awords</p>
                     </a>
@@ -120,12 +125,13 @@ function isActive($data)
                         <p>ความภาคภูมิใจ</p>
                     </a>
                 </li>
-                <li class=" nav-item">
-                            <a href="../budgets/" class="nav-link <?php echo isActive('budgets') ?>">
+                <!-- <li class=" nav-item">
+                            <a href="../budgets/" class="nav-link <?php //echo isActive('budgets') 
+                                                                    ?>">
                                 <i class="nav-icon fas fa-memory"></i>
                                 <p>รางวัลเเละความภาคภูมิใจ</p>
                             </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="../contact_us/" class="nav-link <?php echo isActive('contact_us') ?>">
                         <i class="nav-icon fas fa-envelope"></i>
@@ -168,24 +174,26 @@ function isActive($data)
                         <p>ข่าว</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="../pride/" class="nav-link <?php echo isActive('pride') ?>">
+                <!-- <li class="nav-item">
+                    <a href="../pride/" class="nav-link <?php //echo isActive('pride') 
+                                                        ?>">
                         <i class="nav-icon fas fa-gift"></i>
                         <p>ความภาคภูมิใจ</p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="../projects/" class="nav-link <?php echo isActive('projects') ?>">
                         <i class="nav-icon fas fa-book"></i>
                         <p>โปรเจค</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="../strategy/" class="nav-link <?php echo isActive('strategy') ?>">
+                <!-- <li class="nav-item">
+                    <a href="../strategy/" class="nav-link <?php //echo isActive('strategy') 
+                                                            ?>">
                         <i class="nav-icon fas fa-hand-holding-heart"></i>
                         <p>ความภาคภูมิใจ</p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="../training_education/" class="nav-link <?php echo isActive('training_education') ?>">
                         <i class="n     av-icon fas fa-user-cog"></i>

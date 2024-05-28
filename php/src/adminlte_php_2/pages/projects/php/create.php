@@ -2,36 +2,39 @@
 
 require_once('connect.php');
 
-// Check if the form was submitted
 if (isset($_POST['submit'])) {
 
-    // Escape user inputs for security
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $pj_name = isset($_POST['pj_name']) ? mysqli_real_escape_string($conn, $_POST['pj_name']) : '';
+    $description = isset($_POST['description']) ? mysqli_real_escape_string($conn, $_POST['description']) : '';
 
-    // Attempt insert query execution
+    if (empty($pj_name)) {
+        echo "Project name is required";
+        exit();
+    }
+
     $sql = "INSERT INTO projects (name, description) 
             VALUES (?, ?)";
 
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ss", $name, $description);
+    if ($stmt === false) {
+        echo "Error: " . mysqli_error($conn);
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ss", $pj_name, $description);
 
     if (mysqli_stmt_execute($stmt)) {
-        // Redirect to the home page after successful insertion
         header('Location: ../');
         exit();
     } else {
-        // Print error message and SQL error if insertion fails
         echo "Error: " . mysqli_error($conn);
         echo "<br>";
-        echo "เพิ่มข้อมูลไม่สำเร็จ";
+        echo "Failed to insert data";
     }
 
     mysqli_stmt_close($stmt);
 } else {
-    // Print message if form is not submitted
-    echo "โปรดกรอกข้อมูลและส่งแบบฟอร์ม";
+    echo "Please fill out the form and submit it";
 }
 
-// Close connection
 mysqli_close($conn);

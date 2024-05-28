@@ -84,7 +84,6 @@ require_once('../authen.php');
                                             if ($result === false) {
                                                 die("Error executing query: " . $conn->error);
                                             }
-
                                             if ($result->num_rows > 0) {
                                                 $num = 0;
                                                 while ($row = $result->fetch_assoc()) {

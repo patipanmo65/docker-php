@@ -11,25 +11,40 @@ if (isset($_POST['submit'])) {
     $uploadDir = '../uploads/';
     $uploadedFile = $_FILES['pdf_file']['name'];
     $tempName = $_FILES['pdf_file']['tmp_name'];
-    $pdfFilePath = $uploadDir . $uploadedFile;
+    $pdfFilePath = $uploadDir . basename($uploadedFile);
+
+    $uploadSuccess = false;
+    $dbSuccess = false;
 
     if (move_uploaded_file($tempName, $pdfFilePath)) {
         // File uploaded successfully, proceed with database insertion
+        $uploadSuccess = true;
         $sql = "INSERT INTO annual_reports (title, content, pdf_file) VALUES (?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "sss", $title, $content, $pdfFilePath);
 
-        if (mysqli_stmt_execute($stmt)) {
-            echo "เพิ่มข้อมูลเสร็จเรียบร้อย";
-            header('Location: ../');
-            exit();
+        if ($stmt) {
+            mysqli_stmt_bind_param($stmt, "sss", $title, $content, $pdfFilePath);
+
+            if (mysqli_stmt_execute($stmt)) {
+                $dbSuccess = true;
+            } else {
+                $dbSuccess = false;
+            }
+
+            mysqli_stmt_close($stmt);
         } else {
-            echo "เพิ่มข้อมูลไม่สำเร็จ";
+            $dbSuccess = false;
         }
-
-        mysqli_stmt_close($stmt);
     } else {
-        echo "ไม่สามารถอัพโหลดไฟล์ได้";
+        $uploadSuccess = false;
+    }
+
+    if ($uploadSuccess && $dbSuccess) {
+        header('Location: ../');
+        exit();
+    } else {
+        $errorMessage = !$uploadSuccess ? "ไม่สามารถอัพโหลดไฟล์ได้" : "เพิ่มข้อมูลไม่สำเร็จ";
+        echo $errorMessage;
     }
 } else {
     // Handle case when form is not submitted

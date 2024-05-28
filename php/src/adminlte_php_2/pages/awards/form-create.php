@@ -21,21 +21,21 @@
     <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <script>
-        // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
-        window.history.pushState(null, null, window.location.href);
-        window.onpopstate = function(event) {
-            history.go(1);
-        };
+    // ป้องกันการกดปุ่มย้อนกลับบนเบราว์เซอร์
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function(event) {
+        history.go(1);
+    };
     </script>
 
     <style>
-        .flex-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: #F5F8FF;
-        }
+    .flex-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #F5F8FF;
+    }
     </style>
 </head>
 
@@ -47,12 +47,13 @@
             <div class="shadow rounded p-5 bg-body h-100">
                 <div class="row justify-content-center">
                     <div class="col-md-10">
-                        <h1 class="mb-5"> เกี่ยวกับ </h1>
-                        <h3>เพิ่มรายการ</h3>
+                        <!-- <h1 class="mb-5"> เกี่ยวกับ </h1> -->
+                        <h3>เพิ่มข้อมูล</h3>
                         <form class="row gy-4" action="php/create.php" method="POST">
                             <div class="col-md-6">
                                 <label for="title" class="form-label">ชื่อเรื่อง</label>
-                                <input type="text" class="form-control" id="title" name="title" placeholder="ชื่อเรื่อง" required>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="ชื่อเรื่อง"
+                                    required>
                             </div>
                             <!-- <div class="col-md-12">
                                 <label for="detail" class="form-label">รายละเอียด</label>
@@ -60,7 +61,8 @@
                             </div> -->
                             <div class="col-md-12">
                                 <label for="content" class="form-label">เนื้อหา</label>
-                                <textarea type="text" class="form-control" id="content" name="content" placeholder="เนื้อหา" required></textarea>
+                                <textarea type="text" class="form-control" id="content" name="content"
+                                    placeholder="เนื้อหา" required></textarea>
                             </div>
                             <!-- <div class="col-md-6">
                                 <label for="price" class="form-label">ตำเเหน่ง</label>
@@ -73,7 +75,8 @@
                                     placeholder="เเผนก" required>
                             </div> -->
                             <div class="col-12">
-                                <button type="submit" name="submit" class="btn btn-primary d-block mx-auto">บันทึกการเปลี่ยนแปลง</button>
+                                <button type="submit" name="submit"
+                                    class="btn btn-primary d-block mx-auto">บันทึกการเปลี่ยนแปลง</button>
                             </div>
                         </form>
                         <a href="./">ย้อนกลับ</a>

@@ -10,7 +10,7 @@ require_once('../authen.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Services</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
     <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../../assets/css/adminlte.min.css">
@@ -21,7 +21,17 @@ require_once('../authen.php');
     <div class="wrapper">
         <?php include_once('../includes/sidebar.php') ?>
 
-
+        <div class="flex-container">
+            <div class="container">
+                <div class="col-lg-10">
+                    <div class="table-responsive">
+                        <div class="table table-bordered">
+                            <th>รายละเอียด</th>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -45,7 +55,7 @@ require_once('../authen.php');
     <script src="../../assets/js/adminlte.min.js"></script>
 
     <!-- OPTIONAL SCRIPTS -->
-    <script src="../../plugins/chart.js/Chart.min.js"></script>
+    <!-- <script src="../../plugins/chart.js/Chart.min.js"></script>
     <script>
         $(function() {
             function renderChart(chartType = 'bar') {
@@ -101,6 +111,7 @@ require_once('../authen.php');
             }
             renderChart('bar')
         })
-    </script>
+    </script> -->
+
 </body>
 < </html>

@@ -29,15 +29,59 @@ require_once('connect/connect.php');
     <!-- Custom styles for this template -->
     <link href="style/home.css" rel="stylesheet" />
 
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    h5 {
+        text-align: center;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .row {
+        margin-bottom: 30px;
+    }
+
+    ol {
+        padding-left: 20px;
+    }
+
+    .postext {
+        background-color: #563d7c;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .card-img-top {
+        width: 500px;
+        height: 500px;
+        object-fit: cover;
+    }
+    </style>
+
 </head>
 
 <body>
 
     <!-- includes navbar เรียกใช้ Navbar -->
 
-    <?php require_once ('nav.php') ?>
-
-
+    <?php require_once('nav.php') ?>
 
 
     <main role="main">
@@ -172,7 +216,7 @@ require_once('connect/connect.php');
                                         // Loop through the data to display images
                                         while ($row = $result->fetch_assoc()) {
                                             // เเสดงภาพ
-                                            echo '<img class="card-img-top" src="./adminlte_php_2/pages/health_news/uploads/' . $row["image"] . '" alt="Card image cap">';
+                                            echo '<img class="card-img-top" src="./adminlte_php_2/pages/health_news/uploads/' . $row["image"] . '" alt="Card image cap"> ';
                                         }
                                     } else {
                                         // หากไม่มี ภาพ ให้เเสดง card  จาก api
@@ -227,9 +271,7 @@ require_once('connect/connect.php');
                             </div>
                         </div>
 
-
                         <!-- slide 2 -->
-
 
                         <div class="col-md-4" style="float:left">
                             <div class="card card-cascade wider mb-2">
@@ -309,7 +351,6 @@ require_once('connect/connect.php');
 
                     <!--Second slide-->
                     <div class="carousel-item">
-
 
                         <!-- silde 3 -->
 
@@ -462,7 +503,6 @@ require_once('connect/connect.php');
                             </div>
                         </div>
 
-
                         <!-- slide 5 -->
 
                         <div class="col-md-4" style="float:left">
@@ -537,7 +577,6 @@ require_once('connect/connect.php');
                                 </div>
                             </div>
                         </div>
-
 
                     </div>
                     <!--/.Second slide-->
@@ -650,6 +689,8 @@ require_once('connect/connect.php');
                 <div class="d-none d-md-block card mt-3 mb-3 float-center">
                     <img class="card-img-top"
                         src="https://image.bangkokbiznews.com/image/kt/media/image/fileupload/source/chulalak/9467334575484.jpg?1551879241889?x-image-process=style/lg-webp" />
+                    <p class="container">ผู้อำนวยการ</p>
+                    <p class="container">โรงพยาบาลสมเด็จพระยุพราชปัว</p>
                 </div>
                 <div class="d-none d-xl-block fb-page mb-3" data-href="https://www.facebook.com/PCPHNAN/?locale=th_TH"
                     data-tabs="timeline" data-width="300" data-height="550" data-small-header="false"
@@ -681,7 +722,6 @@ require_once('connect/connect.php');
     </div>
 
 
-
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
     <script>
@@ -706,15 +746,11 @@ require_once('connect/connect.php');
     <!-- connection -->
 
 
-
     </div>
     <br>
     <br>
     <br>
     <br>
-
-
-
 
 
 
@@ -837,7 +873,6 @@ require_once('connect/connect.php');
 
 
             </tbody>
-
 
 
         </table>
@@ -1008,10 +1043,6 @@ require_once('connect/connect.php');
 
 
     <?php require_once 'footer.php' ?>
-
-
-
-
 
 
 

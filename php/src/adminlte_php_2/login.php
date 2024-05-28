@@ -2,9 +2,7 @@
 
 /**
  * Login Page
- *
- * @link https://appzstory.dev
- * @author Yothin Sapsamran (Jame AppzStory Studio)
+
  */
 ?>
 <!DOCTYPE html>
@@ -47,10 +45,11 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text px-3">รหัสผ่าน</div>
                                         </div>
-                                        <input type="password" class="form-control" name="password" placeholder="password">
+                                        <input type="password" class="form-control" name="password"
+                                            placeholder="password">
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-dark btn-block">เข้าสู่ระบบ</button>
+                                <button type="submit" class="btn btn-dark btn-block">เข้าสู่form</button>
                             </form>
                         </div>
                     </div>

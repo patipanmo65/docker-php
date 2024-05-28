@@ -30,7 +30,6 @@
         padding: 20px;
     }
 
-
     h5 {
         text-align: center;
     }
@@ -170,7 +169,7 @@
                 }
 
                 // คำสั่ง SQL เพื่อดึงข้อมูล
-                $sql = "SELECT * FROM ";
+                $sql = "SELECT * FROM training_education";
                 $result = $conn->query($sql);
 
                 // ตรวจสอบว่ามีข้อมูลหรือไม่
@@ -178,7 +177,7 @@
                     echo "<ol>";
                     // วนลูปเพื่อแสดงข้อมูล
                     while ($row = $result->fetch_assoc()) {
-                        echo "<li>" . $row['your_column_name'] . "</li>";
+                        echo "<li>" . $row['content'] . "</li>";
                     }
                     echo "</ol>";
                 } else {
@@ -206,7 +205,6 @@
             เพื่อเพิ่มขีดความสามารถในการปฎิบัติงานและเป็นตัวอย่างแก่โรงพยาบาลชุมชน และสถานพยาบาลอื่นๆ</h6>
 
     </main>
-
 
     <!-- เรียกใช้ footer -->
     <?php require("../../footer.php") ?>

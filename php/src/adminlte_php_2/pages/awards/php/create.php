@@ -8,21 +8,23 @@ if (isset($_POST['submit'])) {
     $content = mysqli_real_escape_string($conn, $_POST['content']);
 
     // Attempt insert query execution
-    $sql = "INSERT INTO awards (title, content) 
-            VALUES (?, ?)";
-
+    $sql = "INSERT INTO awards (title, content) VALUES (?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ss", $title, $content); // Adjusted to "ss"
 
-    if (mysqli_stmt_execute($stmt)) {
-        echo "เพิ่มข้อมูลเสร็จเรียบร้อย";
-        header('Location: ../');
-        exit();
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "ss", $title, $content); // Adjusted to "ss"
+
+        if (mysqli_stmt_execute($stmt)) {
+            // Use JavaScript to show alert and then redirect
+            echo '<script>alert("เพิ่มข้อมูลเสร็จเรียบร้อย"); window.location.href = "../";</script>';
+        } else {
+            echo '<script>alert("เพิ่มข้อมูลไม่สำเร็จ"); window.location.href = "../";</script>';
+        }
+
+        mysqli_stmt_close($stmt);
     } else {
-        echo "เพิ่มข้อมูลไม่สำเร็จ";
+        echo '<script>alert("เพิ่มข้อมูลไม่สำเร็จ"); window.location.href = "../";</script>';
     }
-
-    mysqli_stmt_close($stmt);
 } else {
     // Handle case when form is not submitted
     echo "โปรดกรอกข้อมูลและส่งแบบฟอร์ม";

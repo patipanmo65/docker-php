@@ -88,9 +88,9 @@ $result = mysqli_query($conn, $sql);
                             <table class="table table-bordered">
                                 <thead>
                                     <tr class="text-center text-light bg-dark">
-                                        <th>#</th>
+                                        <!-- <th>#</th> -->
                                         <th>โปรเจค</th>
-                                        <th>จำนวน</th>
+                                        <!-- <th>จำนวน</th> -->
                                         <th>ปี</th>
                                         <th>#</th>
                                     </tr>
@@ -99,9 +99,11 @@ $result = mysqli_query($conn, $sql);
                                     <?php $i = 1; ?>
                                     <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                                     <tr class="text-center">
-                                        <td> <?php echo $i++; ?> </td>
+                                        <!-- <td> <?php //echo $i++; 
+                                                            ?> </td> -->
                                         <td> <?php echo htmlspecialchars($row['project_name']); ?> </td>
-                                        <td> <?php echo number_format($row['amount']); ?> </td>
+                                        <!-- <td> <?php //echo number_format($row['amount']); 
+                                                            ?> </td> -->
                                         <td> <?php echo $row['year']; ?> </td>
 
                                         <td>
